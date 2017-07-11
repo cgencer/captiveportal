@@ -8,6 +8,7 @@ const config = {
     js: './src/index.js',
     css: [
       './src/public/stylesheets/base.scss',
+      './src/public/stylesheets/partials/_mixins.scss',
       './src/public/stylesheets/partials/_addons.scss',
       './src/public/stylesheets/partials/_modal.scss'
     ]
