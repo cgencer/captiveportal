@@ -45,6 +45,9 @@ const config = {
         'image-webpack-loader'
       ]
     }, {
+        test: /\.css$/,
+        loaders: [ 'style-loader', 'css-loader' ]
+    }, {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('css!sass'),
       }],
