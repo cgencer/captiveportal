@@ -9,13 +9,34 @@ const config = {
     path: __dirname,
     filename: 'bundle.js',
   },
+  imageWebpackLoader: {
+    mozjpeg: { quality: 65 },
+    pngquant: {
+      quality: "65-90",
+      speed: 4
+    },
+    svgo: {
+      plugins: [
+        { removeViewBox: false}, 
+        { removeEmptyAttrs: false}
+      ]
+    }
+  },
   module: {
     loaders: [{
       exclude: /node_modules/,
       test: /\.(js|jsx)$/,
       loader: 'babel',
-    },
-      {
+    }, {
+      test: /\.(jpe?g|png|gif|svg)$/i,
+//      include: path.resolve(__dirname, './public/img/'),
+      options: {
+        name: '[path][name].[hash].[ext]'
+      },
+      loaders: [
+        'image-webpack-loader'
+      ]
+    }, {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('css!sass'),
       }],

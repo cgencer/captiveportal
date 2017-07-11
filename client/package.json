@@ -4,7 +4,7 @@
   "description": "Client-side of MERN Starter.",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot"
   },
   "author": "Joshua Slate",
   "license": "MIT",
@@ -38,6 +38,8 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.6.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.11.2",
+    "image-webpack-loader": "^3.3.1",
     "node-sass": "^3.4.2",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
