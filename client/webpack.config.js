@@ -4,7 +4,14 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
   context: __dirname,
-  entry: './src/index.js',
+  entry: {
+    js: './src/index.js',
+    css: [
+      './src/public/stylesheets/base.scss',
+      './src/public/stylesheets/partials/_addons.scss',
+      './src/public/stylesheets/partials/_modal.scss'
+    ]
+  },
   output: {
     path: __dirname,
     filename: 'bundle.js',
@@ -29,7 +36,7 @@ const config = {
       loader: 'babel',
     }, {
       test: /\.(jpe?g|png|gif|svg)$/i,
-//      include: path.resolve(__dirname, './public/img/'),
+      include: path.resolve(__dirname, '/public/img/'),
       options: {
         name: '[path][name].[hash].[ext]'
       },
