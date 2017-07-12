@@ -10,32 +10,44 @@
     <title>Kron Login:start</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
     <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
-    <link href="../css/main.css" rel="stylesheet">
-    <link href="../css/extras/_addons.css" rel="stylesheet">
+    <link href="../stylesheets/theme.css" rel="stylesheet">
 
-	<link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
 
   </head>
 
   <body class="home">
 
   <div class="card mx-auto rounded loginCard">
-		<div class="container-fluid row">
-			<div class="mobile-logo"><img class="card-img-top-mobile" src="../img/turkcell-logo.png" alt="Operator logo" /></div>
-			<div class="col-sm-5 rounded-left" id="left-part">
-				<h4 class="">(+90) 532 123 45 67</h4>
-				<h5 class="">WiFi Erişimi</h5>
-				<p class="card-text">Günlük toplam 360 dakika ücretsiz WiFi kullanabilmek için SMS aracılığıyla kaydolun.</p>
-			</div>
-      <div class="col-sm-7 row card-block" id="right-part">
+    <div class="container-fluid row">
 
-        <div class="col-11 offset-1">
-          <img class="card-img-top-desktop" src="../img/turkcell-logo.png" alt="Operator logo" />
-        </div>
+      <div class="logoMobile">
+        <img class="card-img-top-mobile" src="../img/turkcell-logo.png" alt="Operator logo" />
+      </div>
+
+      <div class="col-sm-5 roundedCorners-leftSide" id="left-part">
+        <h4>(+90) 532 123 45 67</h4>
+        <h5>WiFi Erişimi</h5>
+        <p class="card-text">Günlük toplam 360 dakika ücretsiz WiFi kullanabilmek için SMS aracılığıyla kaydolun.</p>
+      </div>
+
+      <div class="col-sm-7 roundedCorners-rightSide" id="right-part">
+
+        <div class="row">
+          <div class="col-11 offset-1">
+            <div class="logoDesktop">
+
+              <img class="" src="../img/turkcell-logo.png" alt="Operator logo" />
+            </div>
+          </div>
+        <div id="content">
+
+
+
 
         <div class="col-11 offset-1 row">&nbsp;</div>
         <div class="col-11 offset-1 row name">
@@ -50,7 +62,7 @@
 
           <div class="col-9 colPhone">
             <h4 class="card-title-grey">Tel No</h4>
-            <input type="text" class="centering phone" name="" />
+            <span class="phone-prefix">(+90)</span><input type="text" class="centering phone" name="" />
           </div>
           <div class="col-3 colCountry">
             <h4 class="card-title-grey">Ülke</h4>
@@ -80,14 +92,19 @@
           <a href="#" class="btn btn-success centering">Gönder</a>
         </div>
 
+
+
+
+        </div>
+
         <div class="col-11 offset-1">&nbsp;</div>
         <div class="col-11 offset-1 card-footer text-center">
           <small class="text-muted">Powered by Turkcell</small>
         </div>
       </div>
 
-		</div>
-   	</div>
+    </div>
+    </div>
 
 </body>
 </html>
