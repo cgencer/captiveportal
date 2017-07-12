@@ -323,15 +323,14 @@ input[type='text'] {
 	border: none;
 	border-bottom: 1px solid #ccc;
 }
+input[disabled] {
+	background-color: transparent;
+}
 .btn {
 	width:75%;
 }
 .buttonsized {
 	width:75%;  
-}
-.phone {
-	width:100%;
-	margin-left:15px;
 }
 .country {
 	width:100%;
@@ -400,6 +399,9 @@ input[type='text'] {
 .colPhone {
 	padding-right:20px;
 }
+.phone {
+	margin-left:15px;
+}
 .phone-prefix {
 	border-bottom: 1px solid #ccc;
 	padding-left: 5px;
@@ -408,4 +410,10 @@ input[type='text'] {
 .card-img-top-desktop {
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+.dropdown-menu {
+	border: 1px solid #cccccc;
+}
+.colCountry .dropdown-item, .colCountry .dropdown-item a {
+	padding:0;
 }
