@@ -73,8 +73,8 @@ const config = {
     }),
 /*
     new webpack.optimize.CommonsChunkPlugin({
-      name: "js",
-      chunks: ['js']
+      chunkName: 'js',
+      filename: 'bundle.js'
     }),
 */
     new ExtractTextPlugin('src/public/stylesheets/app.css', {

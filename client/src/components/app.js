@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import HeaderTemplate from './template/header';
 import FooterTemplate from './template/footer';
 
-//import { Button } from 'reactstrap';
-
 class App extends Component {
   render() {
     return (

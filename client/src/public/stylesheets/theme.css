@@ -1,0 +1,174 @@
+html, body{
+  height: 100%;
+}
+body {
+  padding-top: 50px;
+  text-align: center;
+}
+/* managing different sized backgrounds */
+@media all and (max-width: 319px) {
+    .home {
+        background-image: url('../img/back-200.png');
+        background-size: 200px 150px;
+    }
+}
+
+@media all and (max-width: 639px) and (min-width: 320px) {
+    .home {
+        background-image: url('../img/back-320.png');
+        background-size: 320px 240px;
+    }
+}
+
+@media all and (max-width: 799px) and (min-width: 640px) {
+    .home {
+        background-image: url('../img/back-640.png');
+        background-size: 640px 480px;
+    }
+}
+
+@media all and (max-width: 1023px) and (min-width: 800px) {
+    .home {
+        background-image: url('../img/back-800.png');
+        background-size: 800px 600px;
+    }
+}
+
+@media all and (min-width: 1024px) {
+    .home {
+        background-image: url('../img/back-1024.png');
+        background-size: 1024px 768px;
+    }
+}
+.home {
+    background-repeat:no-repeat;
+    background-position:center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    width: 100%;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+/* CARDS */
+#left-part, #right-part {
+    font-family: 'Jura', sans-serif;
+}
+#left-part {
+    width: 100%;
+    color:#ffffff;
+   	border:1px solid #550000;
+}
+#right-part {
+   	border:1px solid #005500;
+   	background-color:#ffffff;
+}
+.loginCard {
+	width: 34rem;
+	margin-top:50px;
+}
+    .rounded-left {
+      -webkit-border-top-left-radius:16px;
+      -moz-border-radius-topleft:16px;
+      border-top-left-radius:16px;
+
+      -webkit-border-top-right-radius:16px;
+      -moz-border-radius-topright:16px;
+      border-top-right-radius:16px;
+
+      -webkit-border-bottom-left-radius:0;
+      -moz-border-radius-bottomleft:0;
+      border-top-left-radius:0;
+
+      -webkit-border-bottom-right-radius:0;
+      -moz-border-radius-bottomright:0;
+      border-top-right-radius:0;
+    }
+/* MOBILE */
+@media all 
+  and (min-width: 581px) {
+    .logoMobile {
+      display:none;
+    }
+    .logoDesktop {
+      display:block;
+	}    
+    .loginCard {
+      width: 34rem;
+      margin-top:50px;
+    }
+    #left-part {
+		background: url('../img/left-back.png') no-repeat bottom left fixed;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    background-size: cover;
+	    -o-background-size: cover;    	
+    }
+}
+/* DESKTOP */
+@media all 
+  and (max-width: 580px) {
+    .logoMobile {
+      margin:0 auto;
+      display:block;
+    }
+    .logoMobile img {
+    	width:100%
+    }
+    .logoDesktop {
+      display:none;
+	}
+    .loginCard {
+      width: 100%;
+      margin:20px;
+      margin-top:50px;
+    }
+    #left-part {
+        background: url('../img/left-back-white.png') no-repeat center left fixed;
+        background-size: 100% 100%;
+        color:#113;
+    }
+    #right-part {
+    	background-color: #ffffff;
+        background-size: 100% 100%;
+        color:#113;
+    }
+}
+
+
+
+.rounded {
+  border-radius: 16px;
+}
+
+
+.card {
+  border:none;
+}
+.card-block {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.card-img-top {
+    margin: 0 auto;
+}
+.card-title-grey {
+    font-family: 'Jura', sans-serif;
+	color:#ccc;
+	font-size:14px;
+}
+.card-footer {
+  background-color:transparent !important;
+  padding:0;
+  border:0;
+}

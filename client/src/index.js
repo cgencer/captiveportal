@@ -11,6 +11,7 @@ import ReactGA from 'react-ga';
 import { AUTH_USER } from './actions/types';
 
 import 'bootstrap/dist/css/bootstrap.css';
+//require('!style-loader!css-loader!sass-loader!'+path.resolve(__dirname, '/public/stylesheets/')+'base.scss');
 
 // Initialize Google Analytics
 ReactGA.initialize('UA-000000-01');
