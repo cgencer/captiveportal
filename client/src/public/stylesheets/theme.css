@@ -6,38 +6,38 @@ body {
   text-align: center;
 }
 /* managing different sized backgrounds */
-@media all and (max-width: 319px) {
-    .home {
-        background-image: url('../img/back-200.png');
-        background-size: 200px 150px;
-    }
-}
-
-@media all and (max-width: 639px) and (min-width: 320px) {
+@media all and (max-width: 576px) {
     .home {
         background-image: url('../img/back-320.png');
-        background-size: 320px 240px;
+        background-size: 320px 200px;
     }
 }
 
-@media all and (max-width: 799px) and (min-width: 640px) {
+@media all and (max-width: 768px) and (min-width: 577px) {
     .home {
         background-image: url('../img/back-640.png');
-        background-size: 640px 480px;
+        background-size: 640px 400px;
     }
 }
 
-@media all and (max-width: 1023px) and (min-width: 800px) {
+@media all and (max-width: 992px) and (min-width: 769px) {
     .home {
         background-image: url('../img/back-800.png');
         background-size: 800px 600px;
     }
 }
 
-@media all and (min-width: 1024px) {
+@media all and (max-width: 1200px) and (min-width: 993px) {
     .home {
         background-image: url('../img/back-1024.png');
         background-size: 1024px 768px;
+    }
+}
+
+@media all and (min-width: 1201px) {
+    .home {
+        background-image: url('../img/back-800.png');
+        background-size: 1200px 1024px;
     }
 }
 .home {
@@ -67,33 +67,57 @@ body {
 #left-part {
     width: 100%;
     color:#ffffff;
-   	border:1px solid #550000;
 }
 #right-part {
-   	border:1px solid #005500;
    	background-color:#ffffff;
+}
+#content {
+	height:300px;
 }
 .loginCard {
 	width: 34rem;
 	margin-top:50px;
 }
-    .rounded-left {
-      -webkit-border-top-left-radius:16px;
-      -moz-border-radius-topleft:16px;
-      border-top-left-radius:16px;
-
-      -webkit-border-top-right-radius:16px;
-      -moz-border-radius-topright:16px;
-      border-top-right-radius:16px;
-
-      -webkit-border-bottom-left-radius:0;
-      -moz-border-radius-bottomleft:0;
-      border-top-left-radius:0;
-
-      -webkit-border-bottom-right-radius:0;
-      -moz-border-radius-bottomright:0;
-      border-top-right-radius:0;
-    }
+.roundedCorners-top-left {
+	-webkit-border-top-left-radius:16px;
+	-moz-border-radius-topleft:16px;
+	border-top-left-radius:16px;
+}
+.roundedCorners-top-right {
+	-webkit-border-top-right-radius:16px;
+	-moz-border-radius-topright:16px;
+	border-top-right-radius:16px;
+}
+.roundedCorners-bottom-left {
+	-webkit-border-bottom-left-radius:16px;
+	-moz-border-radius-bottomleft:16px;
+	border-top-left-radius:16px;
+}
+.roundedCorners-bottom-right {
+	-webkit-border-bottom-right-radius:16px;
+	-moz-border-radius-bottomright:16px;
+	border-top-right-radius:16px;
+}
+.nonRoundedCorners-top-left {
+	-webkit-border-top-left-radius:0;
+	-moz-border-radius-topleft:0;
+	border-top-left-radius:0;
+}
+.nonRoundedCorners-top-right {
+	-webkit-border-top-right-radius:0;
+	-moz-border-radius-topright:0;
+	border-top-right-radius:0;
+}
+.nonRoundedCorners-bottom-left {
+	-webkit-border-bottom-left-radius:0;
+	-moz-border-radius-bottomleft:0;
+	border-top-left-radius:0;
+}
+.nonRoundedCorners-bottom-right {
+	-webkit-border-bottom-right-radius:0;
+	-moz-border-radius-bottomright:0;
+	border-top-right-radius:0;
+}
 /* MOBILE */
 @media all 
   and (min-width: 581px) {
@@ -102,6 +126,8 @@ body {
     }
     .logoDesktop {
       display:block;
+      padding-top:1rem;
+      padding-bottom:1rem;
 	}    
     .loginCard {
       width: 34rem;
@@ -114,6 +140,34 @@ body {
 	    background-size: cover;
 	    -o-background-size: cover;    	
     }
+    .roundedCorners-leftSide {
+		-webkit-border-top-left-radius:16px;
+		-moz-border-radius-topleft:16px;
+		border-top-left-radius:16px;
+		-webkit-border-top-right-radius:0;
+		-moz-border-radius-topright:0;
+		border-top-right-radius:0;
+		-webkit-border-bottom-left-radius:16px;
+		-moz-border-radius-bottomleft:16px;
+		border-top-left-radius:16px;
+		-webkit-border-bottom-right-radius:0;
+		-moz-border-radius-bottomright:0;
+		border-top-right-radius:0;
+    }
+    .roundedCorners-rightSide {
+		-webkit-border-top-left-radius:0;
+		-moz-border-radius-topleft:0;
+		border-top-left-radius:0;
+		-webkit-border-top-right-radius:16px;
+		-moz-border-radius-topright:16px;
+		border-top-right-radius:16px;
+		-webkit-border-bottom-left-radius:0;
+		-moz-border-radius-bottomleft:0;
+		border-top-left-radius:0;
+		-webkit-border-bottom-right-radius:16px;
+		-moz-border-radius-bottomright:16px;
+		border-top-right-radius:16px;
+    }
 }
 /* DESKTOP */
 @media all 
@@ -121,7 +175,13 @@ body {
     .logoMobile {
       margin:0 auto;
       display:block;
+      padding-top:1rem;
+      padding-bottom:1rem;
     }
+	.card-block {
+      padding-top:0;
+      padding-bottom:0;
+	}
     .logoMobile img {
     	width:100%
     }
@@ -143,6 +203,35 @@ body {
         background-size: 100% 100%;
         color:#113;
     }
+    .roundedCorners-leftSide {
+		-webkit-border-top-left-radius:0;
+		-moz-border-radius-topleft:0;
+		border-top-left-radius:0;
+		-webkit-border-top-right-radius:0;
+		-moz-border-radius-topright:0;
+		border-top-right-radius:0;
+		-webkit-border-bottom-left-radius:0;
+		-moz-border-radius-bottomleft:0;
+		border-top-left-radius:0;
+		-webkit-border-bottom-right-radius:0;
+		-moz-border-radius-bottomright:0;
+		border-top-right-radius:0;
+    }
+    .roundedCorners-rightSide {
+		-webkit-border-top-left-radius:0;
+		-moz-border-radius-topleft:0;
+		border-top-left-radius:0;
+		-webkit-border-top-right-radius:0;
+		-moz-border-radius-topright:0;
+		border-top-right-radius:0;
+		-webkit-border-bottom-left-radius:16px;
+		-moz-border-radius-bottomleft:16px;
+		border-top-left-radius:16px;
+		-webkit-border-bottom-right-radius:16px;
+		-moz-border-radius-bottomright:16px;
+		border-top-right-radius:16px;
+    }
+
 }
 
 
@@ -150,8 +239,6 @@ body {
 .rounded {
   border-radius: 16px;
 }
-
-
 .card {
   border:none;
 }
@@ -172,3 +259,28 @@ body {
   padding:0;
   border:0;
 }
+/* TYPOGRAPHY */
+#left-part h4 {
+    font-size: 20px;
+}
+#left-part h5 {
+    font-size: 18px;
+}
+#left-part p {
+    font-size: 14px;
+}
+#right-part h3 {
+    font-size: 40px;
+}
+#right-part h4 {
+    font-size: 18px;
+}
+#right-part h5 {
+    display: inline;
+}
+.card-title-grey {
+    font-family: 'Jura', sans-serif;
+	color:#ccc;
+	font-size:14px;
+}
+
