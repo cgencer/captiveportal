@@ -1,18 +1,21 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
 const config = {
   context: __dirname,
+  entry: './src/index.js',
+/*
   entry: {
     js: './src/index.js',
     css: [
       './src/public/stylesheets/base.scss',
-      './src/public/stylesheets/partials/_mixins.scss',
-      './src/public/stylesheets/partials/_addons.scss',
-      './src/public/stylesheets/partials/_modal.scss'
     ]
   },
+*/
   output: {
     path: __dirname,
     filename: 'bundle.js',
@@ -50,7 +53,7 @@ const config = {
     }, {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('css!sass'),
-      }],
+    }],
   },
   devServer: {
     historyApiFallback: true,
@@ -68,9 +71,25 @@ const config = {
       minimize: true,
       mangle: { except: ['$super', '$', 'exports', 'require', '$q', '$ocLazyLoad'] },
     }),
+/*
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "js",
+      chunks: ['js']
+    }),
+*/
     new ExtractTextPlugin('src/public/stylesheets/app.css', {
+      filename: "[name].css",
       allChunks: true,
     }),
+/*
+    new HtmlWebpackPlugin({
+      alwaysWriteToDisk: true, 
+      filename: 'src/public/index.html',
+      inlineSource: '.(js|css)$'
+    }),
+    new HtmlWebpackInlineSourcePlugin(),
+    new HtmlWebpackHarddiskPlugin(),
+*/
   ],
 };
 
