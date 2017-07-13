@@ -1,0 +1,61 @@
+{
+	loginShortcut: false,
+	template: '',
+	language: '',
+	flags: ['tr', 'en', 'de', 'ua', 'cn', 'ru'],
+	images: [
+		back: {
+			200: 'back-200.png',
+			320: 'back-320.png',
+			640: 'back-640.png',
+			800: 'back-800.png',
+			1024: 'back-1024.png',
+		},
+		logo: 'turkcell-logo.png',
+		left: {
+			dark: 'left-back.png',
+			lite: 'left-back-white.png'
+		}
+	],
+	colors: {
+		logoBack: '#ffffff',
+		headers: '',
+		left: '',
+		rite: '',
+		link: '',
+		inputs: ''
+	},
+	texts: {
+		left: {
+			header: 'WiFi Erişimi',
+			content: 'Günlük toplam 360 dakika ücretsiz WiFi kullanabilmek için SMS aracılığıyla kaydolun.'
+		},
+		footer: 'Powered by Turkcell',
+		login: {
+			header-name: 'Adınız',
+			header-phone: 'Tel no',
+			header-country: 'Ülke',
+			agree: 'Kullanıcı sözleşmesini okudum ve kabul ediyorum.',
+			button1: 'Gönder'
+		},
+		login-short: {
+			header: '',
+			button1: 'Gönder',
+		}
+		pre: {
+			header-time: 'Şifre girmek için kalan süreniz',
+			header-code: 'SMS Şifresi',
+			button1: 'Gönder',
+			button2: 'Nuamrayı değiştir'
+		},
+		post: {
+			header: 'Kalan Süreniz',
+			header-extras-1: '',
+			header-extras-2: '',
+			header-extras-3: '',
+			sub-hr: 'saat',
+			sub-min: 'dakika',
+			button1: 'Ek süre satın al'
+		}
+	}
+}
