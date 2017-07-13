@@ -261,6 +261,11 @@ and (max-width: 580px) {
 	padding:0;
 	border:0;
 }
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
 /* TYPOGRAPHY */
 #left-part h5, .card-text {
 	text-align: left;
