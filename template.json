@@ -1,7 +1,8 @@
 {
 	loginShortcut: false,
 	template: '',
-	language: '',
+	language: 'tr',
+	timerSecs: 360,
 	flags: ['tr', 'en', 'de', 'ua', 'cn', 'ru'],
 	images: [
 		back: {

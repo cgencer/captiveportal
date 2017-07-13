@@ -11,7 +11,13 @@ class App extends React.Component {
       <div>
         <IndexLink to="/">Home</IndexLink>
         {' | '}
-        <Link to="/fuel-savings">Demo App</Link>
+        <Link to="/login">Login</Link>
+        {' | '}
+        <Link to="/logins">Short-login</Link>
+        {' | '}
+        <Link to="/presubmit">Pre-submit</Link>
+        {' | '}
+        <Link to="/postsubmit">Post-submit</Link>
         {' | '}
         <Link to="/about">About</Link>
         <br/>
