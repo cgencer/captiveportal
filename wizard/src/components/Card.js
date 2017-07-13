@@ -12,22 +12,12 @@ const Card = (props) => {
     <div className="card mx-auto rounded loginCard">
       <div className="container-fluid row">
 
-        <div className="logoMobile">
-          <img className="card-img-top-mobile" src="../img/turkcell-logo.png" alt="Operator logo" />
-        </div>
-
         <div className="col-sm-5 roundedCorners-leftSide" id="left-part">
           {props.leftContent}
         </div>
 
         <div className="col-sm-7 roundedCorners-rightSide" id="right-part">
 
-          <div className="row">
-            <div className="col-11 offset-1">
-              <div className="logoDesktop">
-                <img className="" src="../img/turkcell-logo.png" alt="Operator logo" />
-              </div>
-            </div>
           <div id="content">
           {props.riteContent}
           </div>
@@ -38,7 +28,6 @@ const Card = (props) => {
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

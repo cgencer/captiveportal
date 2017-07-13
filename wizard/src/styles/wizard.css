@@ -5,6 +5,8 @@ body {
 	padding-top: 50px;
 	text-align: center;
 }
+@import 'flags.css';
+
 /* managing different sized backgrounds */
 @media all and (max-width: 576px) {
 	.home {
