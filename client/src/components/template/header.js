@@ -35,9 +35,18 @@ class HeaderTemplate extends Component {
           <Link to="/">Home</Link>
         </li>,
         <li key={2}>
-          <Link to="login">Login</Link>
+          <Link to="login-page">Login</Link>
         </li>,
         <li key={3}>
+          <Link to="login-short-page">SLogin</Link>
+        </li>,
+        <li key={4}>
+          <Link to="pre-submit-page">PreSubmit</Link>
+        </li>,
+        <li key={5}>
+          <Link to="post-submit-page">PostSubmit</Link>
+        </li>,
+        <li key={6}>
           <Link to="register">Register</Link>
         </li>,
       ];

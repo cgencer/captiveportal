@@ -10,22 +10,40 @@ class FooterTemplate extends Component {
           <Link to="/">Home</Link>
         </li>,
         <li key={2}>
-          <Link to="dashboard">Dashboard</Link>
+          <Link to="login-page">Login</Link>
         </li>,
         <li key={3}>
-          <Link to="logout">Logout</Link>
+          <Link to="login-short-page">SLogin</Link>
+        </li>,
+        <li key={4}>
+          <Link to="pre-submit-page">PreSubmit</Link>
+        </li>,
+        <li key={5}>
+          <Link to="post-submit-page">PostSubmit</Link>
+        </li>,
+        <li key={6}>
+          <Link to="register">Register</Link>
         </li>,
       ];
     } else {
       return [
         // Unauthenticated navigation
-        <li key={1}>
+         <li key={1}>
           <Link to="/">Home</Link>
         </li>,
         <li key={2}>
-          <Link to="login">Login</Link>
+          <Link to="login-page">Login</Link>
         </li>,
         <li key={3}>
+          <Link to="login-short-page">SLogin</Link>
+        </li>,
+        <li key={4}>
+          <Link to="pre-submit-page">PreSubmit</Link>
+        </li>,
+        <li key={5}>
+          <Link to="post-submit-page">PostSubmit</Link>
+        </li>,
+        <li key={6}>
           <Link to="register">Register</Link>
         </li>,
       ];
