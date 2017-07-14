@@ -1,7 +1,5 @@
 // Google Fonts
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,400italic);
-// partials
-@import "theme";
 
 // Navigation
 $hover-background: #E7E7E7;
@@ -37,3 +35,4 @@ ul.footer-nav {
 p.copyright>span {
   color: #777;
 }
+@import "theme";

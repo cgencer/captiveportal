@@ -10,9 +10,21 @@ class HeaderTemplate extends Component {
           <Link to="/">Home</Link>
         </li>,
         <li key={`${2}header`}>
-          <Link to="dashboard">Dashboard</Link>
+          <Link to="login-page">Login</Link>
         </li>,
         <li key={`${3}header`}>
+          <Link to="login-short-page">SLogin</Link>
+        </li>,
+        <li key={`${4}header`}>
+          <Link to="pre-submit-page">PreSubmit</Link>
+        </li>,
+        <li key={`${5}header`}>
+          <Link to="post-submit-page">PostSubmit</Link>
+        </li>,
+        <li key={`${6}header`}>
+          <Link to="dashboard">Dashboard</Link>
+        </li>,
+        <li key={`${7}header`}>
           <Link to="logout">Logout</Link>
         </li>,
       ];

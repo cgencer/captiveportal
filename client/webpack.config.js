@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const pkg = require('./package.json');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
@@ -8,17 +9,9 @@ const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin
 const config = {
   context: __dirname,
   entry: [
-    './src/index.js', 
-    './src/public/stylesheets/base.scss',
-  ],
-/*
-  entry: {
-    js: './src/index.js',
-    css: [
+      './src/index.js', 
       './src/public/stylesheets/base.scss',
-    ]
-  },
-*/
+    ],
   output: {
     path: __dirname,
     filename: 'bundle.js',

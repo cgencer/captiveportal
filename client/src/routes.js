@@ -7,6 +7,10 @@ import NotFoundPage from './components/pages/not-found-page';
 
 // Import static pages
 import HomePage from './components/pages/home-page';
+import LoginPage from './components/pages/login-page';
+import LoginShortPage from './components/pages/login-short-page';
+import PreSubmitPage from './components/pages/pre-submit-page';
+import PostSubmitPage from './components/pages/post-submit-page';
 import ContactPage from './components/pages/contact-page';
 import ComponentSamplesPage from './components/pages/component-samples';
 
@@ -14,19 +18,10 @@ import ComponentSamplesPage from './components/pages/component-samples';
 import Register from './components/auth/register';
 import Login from './components/auth/login';
 import Logout from './components/auth/logout';
-import ForgotPassword from './components/auth/forgot_password';
-import ResetPassword from './components/auth/reset_password';
 
 // Import dashboard pages
 import Dashboard from './components/dashboard/dashboard';
 import ViewProfile from './components/dashboard/profile/view-profile';
-import Inbox from './components/dashboard/messaging/inbox';
-import Conversation from './components/dashboard/messaging/conversation';
-import ComposeMessage from './components/dashboard/messaging/compose-message';
-import BillingSettings from './components/billing/settings';
-
-// Import billing pages
-import InitialCheckout from './components/billing/initial-checkout';
 
 // Import admin pages
 import AdminDashboard from './components/admin/dashboard';
@@ -42,11 +37,11 @@ export default (
     <Route path="register" component={Register} />
     <Route path="login" component={Login} />
     <Route path="logout" component={Logout} />
-    <Route path="forgot-password" component={ForgotPassword} />
-    <Route path="reset-password/:resetToken" component={ResetPassword} />
 
-    <Route path="checkout/:plan" component={RequireAuth(InitialCheckout)} />
-    <Route path="billing/settings" component={RequireAuth(BillingSettings)} />
+    <Route path="login-page" component={LoginPage} />
+    <Route path="login-short-page" component={LoginShortPage} />
+    <Route path="pre-submit-page" component={PreSubmitPage} />
+    <Route path="post-submit-page" component={PostSubmitPage} />
 
     <Route path="profile" component={RequireAuth(ViewProfile)} />
 
@@ -54,9 +49,6 @@ export default (
 
     <Route path="dashboard">
       <IndexRoute component={RequireAuth(Dashboard)} />
-      <Route path="inbox" component={RequireAuth(Inbox)} />
-      <Route path="conversation/new" component={RequireAuth(ComposeMessage)} />
-      <Route path="conversation/view/:conversationId" component={RequireAuth(Conversation)} />
     </Route>
 
     <Route path="*" component={NotFoundPage} />

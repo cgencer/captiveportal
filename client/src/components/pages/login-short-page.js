@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router';
 import Card from './Card';
 
-class HomePage extends Component {
+class LoginShortPage extends Component {
   render() {
     return (
     <Card leftContent={
@@ -14,10 +14,11 @@ class HomePage extends Component {
     } riteContent={
       // right
       <div>
+      LOGIN SHORT Page
       </div>      
     } footerContent="Powered by Turkcell" />
     );
   }
 }
 
-export default HomePage;
+export default LoginShortPage;

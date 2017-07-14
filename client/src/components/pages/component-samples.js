@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 
-import PricingTable from '../sales/pricing-table';
-import SocialMediaBar from '../sales/social-media-bar';
-import Rotator from '../sales/rotator';
-
 const bronzeFeatures = ['Really cool', 'Pretty cheap', 'Awesome'];
 const silverFeatures = ['A couple features', 'Pretty neat'];
 const goldFeatures = ['A bit cooler yet'];
@@ -40,14 +36,7 @@ class ComponentSamplesPage extends Component {
     return (
       <div className="select-plan">
         <div className="row">
-          <PricingTable planName="Bronze" color="#CCC" price="$10" features={bronzeFeatures} />
-          <PricingTable planName="Silver" price="$15" features={silverFeatures} />
-          <PricingTable planName="Gold" price="$20" features={goldFeatures} />
         </div>
-
-        <SocialMediaBar socialNetworks={social} />
-
-        <Rotator rotators={rotators} />
       </div>
     );
   }
