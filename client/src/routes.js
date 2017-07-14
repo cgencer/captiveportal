@@ -12,7 +12,6 @@ import LoginShortPage from './components/pages/login-short-page';
 import PreSubmitPage from './components/pages/pre-submit-page';
 import PostSubmitPage from './components/pages/post-submit-page';
 import ContactPage from './components/pages/contact-page';
-import ComponentSamplesPage from './components/pages/component-samples';
 
 // Import authentication related pages
 import Register from './components/auth/register';
@@ -33,7 +32,6 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
     <Route path="contact-us" component={ContactPage} />
-    <Route path="component-samples" component={RequireAuth(ComponentSamplesPage)} />
     <Route path="register" component={Register} />
     <Route path="login" component={Login} />
     <Route path="logout" component={Logout} />
@@ -41,7 +39,7 @@ export default (
     <Route path="login-page" component={LoginPage} />
     <Route path="login-short-page" component={LoginShortPage} />
     <Route path="pre-submit-page" component={PreSubmitPage} />
-    <Route path="post-submit-page" component={PostSubmitPage} />
+    <Route path="post-submit-page" component={RequireAuth(PostSubmitPage)} />
 
     <Route path="profile" component={RequireAuth(ViewProfile)} />
 

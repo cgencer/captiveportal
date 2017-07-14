@@ -1,13 +1,9 @@
-// Google Fonts
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,400italic);
-
 // Navigation
 $hover-background: #E7E7E7;
 $hover-text: #555;
 
 b.navbar-default .navbar-nav>li>a:hover {
   color: $hover-text;
-  background-color: $hover-background;
 }
 
 .dropdown:hover .dropdown-menu {

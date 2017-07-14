@@ -1,6 +1,8 @@
+@import "partials/normalize";
 @import "partials/flags";
 @import "partials/fonts";
 @import "partials/mixins";
+
 $image-folder: '/src/public/img';
 
 html, body{
@@ -72,7 +74,6 @@ body {
 }
 #left-part {
 	width: 100%;
-	color:#ffffff;
 }
 #right-part {
 	background-color:#ffffff;
@@ -241,9 +242,6 @@ and (max-width: 580px) {
 	}
 
 }
-
-
-
 .rounded {
 	border-radius: 16px;
 }

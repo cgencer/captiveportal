@@ -14,7 +14,23 @@ class PostSubmitPage extends Component {
     } riteContent={
       // right
       <div>
-      POST SUBMIT Page
+            <div className="row">
+              <div className="col-12">&nbsp;</div>
+              <div className="col-12">
+                <h4 className="card-title-grey">Kalan Süreniz</h4>
+                <div className="fullsize hr-mins">
+                  <h3>04:23</h3>
+                  <h5 className="card-title-grey hrs">saat</h5>
+                  <h5 className="card-title-grey mins">dakika</h5>
+                </div>
+              </div>
+
+              <div className="col-12">&nbsp;</div>
+              <div className="col-10 offset-1 real-buttons fullsize">
+                <a href="#" className="btn btn-success centering">Ek süre satın al</a>
+              </div>
+  
+            </div>
       </div>      
     } footerContent="Powered by Turkcell" />
     );
