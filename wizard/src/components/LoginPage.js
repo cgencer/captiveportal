@@ -34,11 +34,11 @@ class LoginPage extends React.Component {
 
   virtualServerCallback = (newState) => {
     if (this.state.simulateXHR) {
-    window.setTimeout(function() {
-      this.changeState(newState);
-    }.bind(this), this.state.XHRDelay);
+      window.setTimeout(function() {
+        this.changeState(newState);
+      }.bind(this), this.state.XHRDelay);
     } else {
-    this.changeState(newState);
+      this.changeState(newState);
     }
   };
 

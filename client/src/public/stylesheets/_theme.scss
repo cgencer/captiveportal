@@ -1,3 +1,8 @@
+@import "partials/flags";
+@import "partials/fonts";
+@import "partials/mixins";
+$image-folder: '/src/public/img';
+
 html, body{
 	height: 100%;
 }
@@ -5,38 +10,39 @@ body {
 	padding-top: 50px;
 	text-align: center;
 }
+
 /* managing different sized backgrounds */
 @media all and (max-width: 576px) {
 	.home {
-		background-image: url('../img/back-320.png');
+		background-image: url('#{$image-folder}/back-320.png');
 		background-size: 320px 200px;
 	}
 }
 
 @media all and (max-width: 768px) and (min-width: 577px) {
 	.home {
-		background-image: url('../img/back-640.png');
+		background-image: url('#{$image-folder}/back-640.png');
 		background-size: 640px 400px;
 	}
 }
 
 @media all and (max-width: 992px) and (min-width: 769px) {
 	.home {
-		background-image: url('../img/back-800.png');
+		background-image: url('#{$image-folder}/back-800.png');
 		background-size: 800px 600px;
 	}
 }
 
 @media all and (max-width: 1200px) and (min-width: 993px) {
 	.home {
-		background-image: url('../img/back-1024.png');
+		background-image: url('#{$image-folder}/back-1024.png');
 		background-size: 1024px 768px;
 	}
 }
 
 @media all and (min-width: 1201px) {
 	.home {
-		background-image: url('../img/back-800.png');
+		background-image: url('#{$image-folder}/back-800.png');
 		background-size: 1200px 1024px;
 	}
 }
@@ -62,7 +68,7 @@ body {
 }
 /* CARDS */
 #left-part, #right-part {
-	font-family: 'Jura', sans-serif;
+	font-family: 'Jura-Regular', sans-serif;
 }
 #left-part {
 	width: 100%;
@@ -136,7 +142,7 @@ and (min-width: 581px) {
 		margin-top:50px;
 	}
 	#left-part {
-		background: url('../img/left-back.png') no-repeat bottom left fixed;
+		background: url('#{$image-folder}/left-back.png') no-repeat bottom left fixed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		background-size: cover;
@@ -196,7 +202,7 @@ and (max-width: 580px) {
 		margin-top:50px;
 	}
 	#left-part {
-		background: url('../img/left-back-white.png') no-repeat center left fixed;
+		background: url('#{$image-folder}/left-back-white.png') no-repeat center left fixed;
 		background-size: 100% 100%;
 		color:#113;
 	}
@@ -252,7 +258,7 @@ and (max-width: 580px) {
 	margin: 0 auto;
 }
 .card-title-grey {
-	font-family: 'Jura', sans-serif;
+	font-family: 'Jura-Regular', sans-serif;
 	color:#ccc;
 	font-size:14px;
 }
@@ -305,11 +311,6 @@ and (max-width: 580px) {
 }
 .mins {
 	padding-left: 15px;
-}
-.card-title-grey {
-	font-family: 'Jura', sans-serif;
-	color:#ccc;
-	font-size:14px;
 }
 
 /* BUTTONS */

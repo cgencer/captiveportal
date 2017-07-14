@@ -7,7 +7,10 @@ const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin
 
 const config = {
   context: __dirname,
-  entry: './src/index.js',
+  entry: [
+    './src/index.js', 
+    './src/public/stylesheets/base.scss',
+  ],
 /*
   entry: {
     js: './src/index.js',
@@ -48,6 +51,9 @@ const config = {
         'image-webpack-loader'
       ]
     }, {
+      test: /\.(eot|svg|ttf|woff|woff2)$/,
+      loader: 'file?name=public/fonts/[name].[ext]'
+    }, {
         test: /\.css$/,
         loaders: [ 'style-loader', 'css-loader' ]
     }, {
@@ -60,7 +66,11 @@ const config = {
     contentBase: './',
   },
   plugins: [
-    new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } }),
+    new webpack.DefinePlugin({
+      'process.env': { 
+          NODE_ENV: JSON.stringify('production') 
+      } 
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
@@ -71,16 +81,18 @@ const config = {
       minimize: true,
       mangle: { except: ['$super', '$', 'exports', 'require', '$q', '$ocLazyLoad'] },
     }),
+
+    new ExtractTextPlugin('src/public/stylesheets/app.css', {
+      filename: "[name].css",
+      allChunks: true,
+    }),
+
 /*
     new webpack.optimize.CommonsChunkPlugin({
       chunkName: 'js',
       filename: 'bundle.js'
     }),
 */
-    new ExtractTextPlugin('src/public/stylesheets/app.css', {
-      filename: "[name].css",
-      allChunks: true,
-    }),
 /*
     new HtmlWebpackPlugin({
       alwaysWriteToDisk: true, 

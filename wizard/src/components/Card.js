@@ -24,7 +24,7 @@ const Card = (props) => {
 
           <div className="col-11 offset-1">&nbsp;</div>
           <div className="col-11 offset-1 card-footer text-center">
-            <small className="text-muted">{props.footerContent}</small>
+            <small className="text-muted editables">{props.footerContent}</small>
           </div>
         </div>
       </div>

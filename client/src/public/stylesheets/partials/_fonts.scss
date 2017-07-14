@@ -1,0 +1,62 @@
+$fonts-folder: '/src/public/fonts';
+@font-face {
+  font-family: 'Jura-Regular';
+  src: url('#{$fonts-folder}/Jura-Regular.eot');
+  src: url('#{$fonts-folder}/Jura-Regular.woff2') format('woff2'),
+       url('#{$fonts-folder}/Jura-Regular.woff') format('woff'),
+       url('#{$fonts-folder}/Jura-Regular.ttf') format('truetype'),
+       url('#{$fonts-folder}/Jura-Regular.svg#Jura-Regular') format('svg'),
+       url('#{$fonts-folder}/Jura-Regular.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jura-Medium';
+  src: url('#{$fonts-folder}/Jura-Medium.eot');
+  src: url('#{$fonts-folder}/Jura-Medium.woff2') format('woff2'),
+       url('#{$fonts-folder}/Jura-Medium.woff') format('woff'),
+       url('#{$fonts-folder}/Jura-Medium.ttf') format('truetype'),
+       url('#{$fonts-folder}/Jura-Medium.svg#Jura-Medium') format('svg'),
+       url('#{$fonts-folder}/Jura-Medium.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jura-Light';
+  src: url('#{$fonts-folder}/Jura-Light.eot');
+  src: url('#{$fonts-folder}/Jura-Light.woff2') format('woff2'),
+       url('#{$fonts-folder}/Jura-Light.woff') format('woff'),
+       url('#{$fonts-folder}/Jura-Light.ttf') format('truetype'),
+       url('#{$fonts-folder}/Jura-Light.svg#Jura-Light') format('svg'),
+       url('#{$fonts-folder}/Jura-Light.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jura-Bold';
+  src: url('#{$fonts-folder}/Jura-Bold.eot');
+  src: url('#{$fonts-folder}/Jura-Bold.woff2') format('woff2'),
+       url('#{$fonts-folder}/Jura-Bold.woff') format('woff'),
+       url('#{$fonts-folder}/Jura-Bold.ttf') format('truetype'),
+       url('#{$fonts-folder}/Jura-Bold.svg#Jura-Bold') format('svg'),
+       url('#{$fonts-folder}/Jura-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jura-SemiBold';
+  src: url('#{$fonts-folder}/Jura-SemiBold.eot');
+  src: url('#{$fonts-folder}/Jura-SemiBold.woff2') format('woff2'),
+       url('#{$fonts-folder}/Jura-SemiBold.woff') format('woff'),
+       url('#{$fonts-folder}/Jura-SemiBold.ttf') format('truetype'),
+       url('#{$fonts-folder}/Jura-SemiBold.svg#Jura-SemiBold') format('svg'),
+       url('#{$fonts-folder}/Jura-SemiBold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
