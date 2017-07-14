@@ -19,7 +19,7 @@ class PreSubmitPage extends Component {
         <div className="col-12">
           <h4 className="card-title-grey">Şifre girmek için kalan süreniz</h4>
           <div className="fullsize">
-            <Counter secs="90" />
+            <Counter secs="15" zapTo="login-page" />
           </div>
           <h4 className="card-title-grey">SMS Şifresi</h4>
           <div className="fullsize">

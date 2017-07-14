@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
 import Card from './Card';
+import Counter from '../Counter';
 
 class PostSubmitPage extends Component {
   render() {
@@ -19,7 +20,7 @@ class PostSubmitPage extends Component {
               <div className="col-12">
                 <h4 className="card-title-grey">Kalan Süreniz</h4>
                 <div className="fullsize hr-mins">
-                  <h3>04:23</h3>
+                  <Counter secs="9000" zapTo="login-page" withHours="true" />
                   <h5 className="card-title-grey hrs">saat</h5>
                   <h5 className="card-title-grey mins">dakika</h5>
                 </div>
