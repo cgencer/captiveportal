@@ -6,6 +6,7 @@ body {
 	text-align: center;
 }
 @import 'flags.css';
+@import 'editor.css';
 
 /* managing different sized backgrounds */
 @media all and (max-width: 576px) {

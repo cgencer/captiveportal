@@ -1,0 +1,6 @@
+.editables:hover {
+	border:1px dashed #550000;
+}
+.editables textarea {
+	height:200px;
+}

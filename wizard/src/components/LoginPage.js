@@ -6,15 +6,73 @@ import Card from './Card';
 
 import '../styles/wizard.css';
 
-// Since this component is simple and static, there's no parent container for it.
-const LoginPage = () => {
-  return (
+class LoginPage extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      simulateXHR: false,
+      XHRDelay: 450,
+      highlight: false,
+      showSource: false,
+      isDisabled: false,
+      texts: {
+        header: 'WiFi Erişimi',
+        intro : 'Günlük toplam 360 dakika ücretsiz WiFi kullanabilmek için SMS aracılığıyla kaydolun.',
+        name: 'Adınız',
+        phone: 'Tel No',
+        agree_pre: '',
+        agree_lnk: 'Kullanıcı sözleşmesi',
+        agree_post: 'ni okudum ve kabul ediyorum.',
+        footer: 'Powered by Turkcell',
+        buttons: {
+          submit: 'Gönder',
+        }
+      }
+    };
+  };
+
+  virtualServerCallback = (newState) => {
+    if (this.state.simulateXHR) {
+    window.setTimeout(function() {
+      this.changeState(newState);
+    }.bind(this), this.state.XHRDelay);
+    } else {
+    this.changeState(newState);
+    }
+  };
+
+  changeState = (newState) => {
+    this.setState(newState);
+  };
+
+  render = () => {
+    return(
     <Card leftContent={
 
       // left
       <div className="vcenter">
-        <h5>WiFi Erişimi</h5>
-        <p className="card-text">Günlük toplam 360 dakika ücretsiz WiFi kullanabilmek için SMS aracılığıyla kaydolun.</p>
+        <h5 className="editables">
+          <RIEInput
+            value={this.state.texts.header}
+            change={this.virtualServerCallback}
+            propName="text"
+            className={this.state.highlight ? "editable" : ""}
+            classLoading="loading"
+            classInvalid="invalid"
+            isDisabled={this.state.isDisabled} />
+        </h5>
+        <p className="card-text editables">
+          <RIETextArea
+            value={this.state.texts.intro}
+            change={this.virtualServerCallback}
+            propName="textarea"
+            className={this.state.highlight ? "editable editarea" : ""}
+            validate={this.isStringAcceptable}
+            classLoading="loading"
+            classInvalid="invalid"
+            isDisabled={this.state.isDisabled} />
+          </p>
       </div>
 
     } riteContent={
@@ -33,9 +91,18 @@ const LoginPage = () => {
 
             <div className="col-11 offset-1 row">&nbsp;</div>
             <div className="col-11 offset-1 row name">
-              <h4 className="card-title-grey">Adınız</h4>
+              <h4 className="card-title-grey editables">
+              <RIEInput
+                value={this.state.texts.name}
+                change={this.virtualServerCallback}
+                propName="text"
+                className={this.state.highlight ? "editable" : ""}
+                classLoading="loading"
+                classInvalid="invalid"
+                isDisabled={this.state.isDisabled} />
+              </h4>
               <div className="col-12">
-                <input type="text" className="centering" name="" /> 
+                <input type="text" className="centering" name="" disabled="disabled" /> 
               </div>      
             </div>
 
@@ -46,7 +113,16 @@ const LoginPage = () => {
 
                 <div className="col-12 colPhone">
 
-                  <h4 className="card-title-grey">Tel No</h4>
+                  <h4 className="card-title-grey editables">
+                  <RIEInput
+                    value={this.state.texts.phone}
+                    change={this.virtualServerCallback}
+                    propName="text"
+                    className={this.state.highlight ? "editable" : ""}
+                    classLoading="loading"
+                    classInvalid="invalid"
+                    isDisabled={this.state.isDisabled} />
+                  </h4>
                   <div className="row">
                   <div className="btn-group">
                     <button type="button" className="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,7 +147,7 @@ const LoginPage = () => {
                     </div>
                   </div>
                     <div className="col-3"><input type="text" className="centering phone-prefix" name="" value="(+90)" disabled="disabled" /></div>
-                    <div className="col-8"><input type="text" className="centering phone-number" name="" value="" /></div>
+                    <div className="col-8"><input type="text" className="centering phone-number" name="" value="" disabled="disabled" /></div>
 
                   </div>
 
@@ -82,19 +158,61 @@ const LoginPage = () => {
             <div className="col-11 offset-1 row">
               <div className="input-group">
                 <span className="input-group-addon">
-                  <input type="checkbox" />
+                  <input type="checkbox" disabled="disabled" />
                 </span>
-                <span className="agreement"><a href="#">Kullanıcı sözleşmesi</a>ni okudum ve kabul ediyorum.</span>
+                <span className="agreement editables">
+                  <RIEInput
+                    value={this.state.texts.agree_pre}
+                    change={this.virtualServerCallback}
+                    propName="text"
+                    className={this.state.highlight ? "editable" : ""}
+                    classLoading="loading"
+                    classInvalid="invalid"
+                    isDisabled={this.state.isDisabled} />
+                  <a href="#"><RIEInput
+                    value={this.state.texts.agree_lnk}
+                    change={this.virtualServerCallback}
+                    propName="text"
+                    className={this.state.highlight ? "editable" : ""}
+                    classLoading="loading"
+                    classInvalid="invalid"
+                    isDisabled={this.state.isDisabled} />
+                  </a><RIEInput
+                    value={this.state.texts.agree_post}
+                    change={this.virtualServerCallback}
+                    propName="text"
+                    className={this.state.highlight ? "editable" : ""}
+                    classLoading="loading"
+                    classInvalid="invalid"
+                    isDisabled={this.state.isDisabled} />
+
+                </span>
               </div>
             </div>
             <div className="col-11 offset-1 row text-center real-buttons">
-              <a href="#" className="btn btn-success centering">Gönder</a>
+              <a href="#" className="btn btn-success centering"><RIEInput
+                    value={this.state.texts.buttons.submit}
+                    change={this.virtualServerCallback}
+                    propName="text"
+                    className={this.state.highlight ? "editable" : ""}
+                    classLoading="loading"
+                    classInvalid="invalid"
+                    isDisabled={this.state.isDisabled} /></a>
             </div>
           </div>
         </div>
       </div>      
-    } footerContent="Powered by Turkcell" />
-  );
-};
+    } footerContent={
+                  <RIEInput
+                    value={this.state.texts.footer}
+                    change={this.virtualServerCallback}
+                    propName="text"
+                    className={this.state.highlight ? "editable" : ""}
+                    classLoading="loading"
+                    classInvalid="invalid"
+                    isDisabled={this.state.isDisabled} />
+    } />);
+  };
+}
 
 export default LoginPage;
