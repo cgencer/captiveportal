@@ -9,14 +9,14 @@ import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FORGOT_PASSWORD_REQUEST, RESET_PASS
 //= ===============================
 
 // TO-DO: Add expiration to cookie
-export function loginUser({ email, password }) {
+export function loginUser({ phone, token }) {
   return function (dispatch) {
-    axios.post(`${API_URL}/auth/login`, { email, password })
+    axios.post(`${API_URL}/auth/login`, { phone, token })
     .then((response) => {
       cookie.save('token', response.data.token, { path: '/' });
       cookie.save('user', response.data.user, { path: '/' });
       dispatch({ type: AUTH_USER });
-      window.location.href = `${CLIENT_ROOT_URL}/dashboard`;
+      window.location.href = `${CLIENT_ROOT_URL}/post-submit`;
     })
     .catch((error) => {
       errorHandler(dispatch, error.response, AUTH_ERROR);
@@ -45,7 +45,7 @@ export function logoutUser(error) {
     cookie.remove('token', { path: '/' });
     cookie.remove('user', { path: '/' });
 
-    window.location.href = `${CLIENT_ROOT_URL}/login`;
+    window.location.href = `${CLIENT_ROOT_URL}/login-page`;
   };
 }
 
@@ -73,7 +73,7 @@ export function resetPassword(token, { password }) {
         payload: response.data.message,
       });
       // Redirect to login page on successful password reset
-      browserHistory.push('/login');
+      browserHistory.push('/login-page');
     })
     .catch((error) => {
       errorHandler(dispatch, error.response, AUTH_ERROR);

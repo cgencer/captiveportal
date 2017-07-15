@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
+import * as actions from '../../actions/auth';
 import Card from './Card';
 import Counter from '../Counter';
 

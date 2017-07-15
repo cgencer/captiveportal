@@ -1,5 +1,6 @@
 const AuthenticationController = require('./controllers/authentication');
 const UserController = require('./controllers/user');
+const SpitController = require('./controllers/spit');
 const ChatController = require('./controllers/chat');
 const CommunicationController = require('./controllers/communication');
 const StripeController = require('./controllers/stripe');
@@ -20,6 +21,7 @@ module.exports = function (app) {
   // Initializing route groups
   const apiRoutes = express.Router(),
     authRoutes = express.Router(),
+    spitRoutes = express.Router(),
     userRoutes = express.Router(),
     chatRoutes = express.Router(),
     payRoutes = express.Router(),
@@ -44,6 +46,10 @@ module.exports = function (app) {
   // Password reset route (change password using token)
   authRoutes.post('/reset-password/:token', AuthenticationController.verifyToken);
 
+  apiRoutes.use('/spit', spitRoutes);
+  spitRoutes.get('/out', SpitController.out);
+  spitRoutes.post('/out', SpitController.out);
+
   //= ========================
   // User Routes
   //= ========================
@@ -62,48 +68,6 @@ module.exports = function (app) {
   apiRoutes.get('/admins-only', requireAuth, AuthenticationController.roleAuthorization(ROLE_ADMIN), (req, res) => {
     res.send({ content: 'Admin dashboard is working.' });
   });
-
-  //= ========================
-  // Chat Routes
-  //= ========================
-
-  // Set chat routes as a subgroup/middleware to apiRoutes
-  apiRoutes.use('/chat', chatRoutes);
-
-  // View messages to and from authenticated user
-  chatRoutes.get('/', requireAuth, ChatController.getConversations);
-
-  // Retrieve single conversation
-  chatRoutes.get('/:conversationId', requireAuth, ChatController.getConversation);
-
-  // Send reply in conversation
-  chatRoutes.post('/:conversationId', requireAuth, ChatController.sendReply);
-
-  // Start new conversation
-  chatRoutes.post('/new/:recipient', requireAuth, ChatController.newConversation);
-
-  //= ========================
-  // Payment Routes
-  //= ========================
-  apiRoutes.use('/pay', payRoutes);
-
-  // Webhook endpoint for Stripe
-  payRoutes.post('/webhook-notify', StripeController.webhook);
-
-  // Create customer and subscription
-  payRoutes.post('/customer', requireAuth, StripeController.createSubscription);
-
-  // Update customer object and billing information
-  payRoutes.put('/customer', requireAuth, StripeController.updateCustomerBillingInfo);
-
-  // Delete subscription from customer
-  payRoutes.delete('/subscription', requireAuth, StripeController.deleteSubscription);
-
-  // Upgrade or downgrade subscription
-  payRoutes.put('/subscription', requireAuth, StripeController.changeSubscription);
-
-  // Fetch customer information
-  payRoutes.get('/customer', requireAuth, StripeController.getCustomer);
 
   //= ========================
   // Communication Routes

@@ -1,6 +1,6 @@
 module.exports = {
   // Secret key for JWT signing and encryption
-  secret: 'super secret passphrase',
+  secret: 'Kron_Captive_Login_System',
   // Database connection information
   database: 'mongodb://localhost:27017',
   // Setting port for server

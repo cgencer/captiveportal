@@ -14,7 +14,6 @@ class PostSubmitPage extends Component {
       </div>
     } riteContent={
       // right
-      <div>
             <div className="row">
               <div className="col-12">&nbsp;</div>
               <div className="col-12">
@@ -32,7 +31,6 @@ class PostSubmitPage extends Component {
               </div>
   
             </div>
-      </div>      
     } footerContent="Powered by Turkcell" />
     );
   }

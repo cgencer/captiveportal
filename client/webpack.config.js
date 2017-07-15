@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const dev = 'development';
 
 const config = {
   context: __dirname,
@@ -29,6 +30,11 @@ const config = {
       ]
     }
   },
+//  devtool: 'eval-source-map',
+//  devtool: dev ? 'eval-cheap-module-source-map' : 'source-map',
+  debug: true,
+  devtool: "#inline-source-map",
+
   module: {
     loaders: [{
       exclude: /node_modules/,
@@ -59,9 +65,10 @@ const config = {
     contentBase: './',
   },
   plugins: [
+  
     new webpack.DefinePlugin({
       'process.env': { 
-          NODE_ENV: JSON.stringify('production') 
+          NODE_ENV: JSON.stringify(dev) 
       } 
     }),
     new webpack.optimize.DedupePlugin(),
@@ -80,13 +87,12 @@ const config = {
       allChunks: true,
     }),
 
+
 /*
     new webpack.optimize.CommonsChunkPlugin({
-      chunkName: 'js',
       filename: 'bundle.js'
     }),
-*/
-/*
+
     new HtmlWebpackPlugin({
       alwaysWriteToDisk: true, 
       filename: 'src/public/index.html',

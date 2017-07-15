@@ -5,6 +5,10 @@
 
 $image-folder: '/src/public/img';
 
+.flag {
+    background: url('#{$image-folder}/flags.png') no-repeat;
+}
+
 html, body{
 	height: 100%;
 }

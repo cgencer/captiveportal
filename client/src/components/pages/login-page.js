@@ -14,10 +14,11 @@ class LoginPage extends Component {
     } riteContent={
       // right
       <div>
+        <form>
 
             <div className="col-11 offset-1 row">&nbsp;</div>
             <div className="col-11 offset-1 row name">
-              <h4 className="card-title-grey">Adınız</h4>
+              <h4 className="card-title-grey">Adınız ()</h4>
               <div className="col-12">
                 <input type="text" className="centering" name="" /> 
               </div>      
@@ -72,9 +73,10 @@ class LoginPage extends Component {
               </div>
             </div>
             <div className="col-11 offset-1 row text-center real-buttons">
-              <a href="#" className="btn btn-success centering">Gönder</a>
+              <button type="submit" className="btn btn-success centering">Gönder</button>
             </div>
 
+        </form>
       </div>      
     } footerContent="Powered by Turkcell" />
     );
