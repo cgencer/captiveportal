@@ -1,5 +1,5 @@
 {
-	"response": {
+	"data": {
 	    "loginShortcut": "false",
 	    "template": "",
 	    "language": "tr",
@@ -34,30 +34,30 @@
 	        },
 	        "footer": "Powered by Turkcell",
 	        "login": {
-	            "header-name": "Adınız",
-	            "header-phone": "Tel no",
-	            "header-country": "Ülke",
+	            "headerName": "Adınız",
+	            "headerPhone": "Tel no",
+	            "headerCountry": "Ülke",
 	            "agree": "Kullanıcı sözleşmesini okudum ve kabul ediyorum.",
-	            "button-1": "Gönder"
+	            "button1": "Gönder"
 	        },
-	        "login-short": {
+	        "loginShort": {
 	            "header": "",
-	            "button-1": "Gönder"
+	            "button1": "Gönder"
 	        },
-	        "pre-submit": {
-	            "header-time": "Şifre girmek için kalan süreniz",
-	            "header-code": "SMS Şifresi",
-	            "button-1": "Gönder",
-	            "button-2": "Numarayı değiştir"
+	        "preSubmit": {
+	            "headerTime": "Şifre girmek için kalan süreniz",
+	            "headerCode": "SMS Şifresi",
+	            "button1": "Gönder",
+	            "button2": "Numarayı değiştir"
 	        },
-	        "post-submit": {
+	        "postSubmit": {
 	            "header": "Kalan Süreniz",
-	            "header-extras-1": "",
-	            "header-extras-2": "",
-	            "header-extras-3": "",
-	            "sub-hr": "saat",
-	            "sub-min": "dakika",
-	            "button-1": "Ek süre satın al"
+	            "headerExtras1": "",
+	            "headerExtras2": "",
+	            "headerExtras3": "",
+	            "subHr": "saat",
+	            "subMin": "dakika",
+	            "button1": "Ek süre satın al"
 	        }
 	    }
 	}

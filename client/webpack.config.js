@@ -30,10 +30,6 @@ const config = {
       ]
     }
   },
-//  devtool: 'eval-source-map',
-//  devtool: dev ? 'eval-cheap-module-source-map' : 'source-map',
-  debug: true,
-  devtool: "#inline-source-map",
 
   module: {
     loaders: [{
@@ -86,21 +82,6 @@ const config = {
       filename: "[name].css",
       allChunks: true,
     }),
-
-
-/*
-    new webpack.optimize.CommonsChunkPlugin({
-      filename: 'bundle.js'
-    }),
-
-    new HtmlWebpackPlugin({
-      alwaysWriteToDisk: true, 
-      filename: 'src/public/index.html',
-      inlineSource: '.(js|css)$'
-    }),
-    new HtmlWebpackInlineSourcePlugin(),
-    new HtmlWebpackHarddiskPlugin(),
-*/
   ],
 };
 

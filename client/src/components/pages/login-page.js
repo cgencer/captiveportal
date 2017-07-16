@@ -2,8 +2,18 @@ import React, { Component } from 'react';
 import {Link} from 'react-router';
 import Card from './Card';
 
-class LoginPage extends Component {
+class LoginPage extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props.jsonData);
+    this.state = {
+      jsonData: props.jsonData,
+    };
+  }
+
   render() {
+
+    const ref = this.state.jsonData;
     return (
     <Card leftContent={
       // left
@@ -18,7 +28,7 @@ class LoginPage extends Component {
 
             <div className="col-11 offset-1 row">&nbsp;</div>
             <div className="col-11 offset-1 row name">
-              <h4 className="card-title-grey">Adınız ()</h4>
+              <h4 className="card-title-grey">{ref.texts.left.header}</h4>
               <div className="col-12">
                 <input type="text" className="centering" name="" /> 
               </div>      

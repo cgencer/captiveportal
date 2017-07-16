@@ -11,5 +11,6 @@ exports.out = function (req, res, next) {
     if (err) throw err;
     obj = JSON.parse(data);
   });
-  return res.status(200).json('cb('+JSON.stringify(obj)+');');
+  return res.status(200).json(obj);
+//  return res.status(200).json('cb('+JSON.stringify(obj)+');');
 };
