@@ -11,7 +11,7 @@ const config = {
   context: __dirname,
   entry: [
       './src/index.js', 
-      './src/public/stylesheets/base.scss',
+//      './src/public/stylesheets/base.scss',
     ],
   output: {
     path: __dirname,
@@ -48,12 +48,15 @@ const config = {
     }, {
       test: /\.(eot|svg|ttf|woff|woff2)$/,
       loader: 'file?name=public/fonts/[name].[ext]'
+/*
     }, {
         test: /\.css$/,
         loaders: [ 'style-loader', 'css-loader' ]
     }, {
         test: /\.scss$/,
+        exclude: /node_modules/,
         loader: ExtractTextPlugin.extract('css!sass'),
+*/
     }],
   },
   devServer: {
@@ -77,11 +80,12 @@ const config = {
       minimize: true,
       mangle: { except: ['$super', '$', 'exports', 'require', '$q', '$ocLazyLoad'] },
     }),
-
+/*
     new ExtractTextPlugin('src/public/stylesheets/app.css', {
       filename: "[name].css",
       allChunks: true,
     }),
+*/
   ],
 };
 

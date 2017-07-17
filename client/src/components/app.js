@@ -60,7 +60,6 @@ class App extends React.Component {
       this.setState({ jsonData: res.data.data });
       console.log(res.data);
       this.setState(this.state);
-//    this.forceUpdate();
     })
     .catch((err)=> {})
   }
