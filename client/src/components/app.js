@@ -10,6 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       isLoaded: false,
+      path: props.location.pathname,
       jsonData: {
           loginShortcut: "",
           template: "",
@@ -98,8 +99,14 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div ref={this.handleRef}>
+    return (this.props.location.pathname === '/') ?
+      <div>
+        <div className="container">
+          {this.props.children}
+        </div>
+      </div>
+    : (
+      <div ref={this.handleRef} className="home">
         <div className="container">
           {React.cloneElement(this.props.children, this.state)}
         </div>

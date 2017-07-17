@@ -4,7 +4,16 @@
 	    "template": "",
 	    "language": "tr",
 	    "timerSecs": 360,
+	    "remainingTime": 2400,
 	    "flags": ["tr", "en", "de", "ua", "cn", "ru"],
+	    "countries": [
+	    	{"code": "tr", "prefix": "(+90)"},
+	    	{"code": "en", "prefix": "(+1)"},
+	    	{"code": "gb", "prefix": "(+1)"},
+	    	{"code": "de", "prefix": "(+49)"},
+	    	{"code": "ua", "prefix": "(+90)"},
+	    	{"code": "cn", "prefix": "(+90)"}
+	    ],
 	    "images": {
 	        "back": {
 	            "200": "back-200.png",
