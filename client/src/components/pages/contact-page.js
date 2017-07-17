@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { sendContactForm } from '../../actions/index';
 
-class ContactPage extends Component {
+class ContactPage extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props.jsonData);
+    this.state = {
+      jsonData: props.jsonData,
+    };
+  }
+
   handleFormSubmit({ firstName, lastName, emailAddress, subject, message }) {
     this.props.sendContactForm({ firstName, lastName, emailAddress, subject, message });
   }

@@ -4,7 +4,13 @@ import * as actions from '../../actions/auth';
 import Card from './Card';
 import Counter from '../Counter';
 
-class PreSubmitPage extends Component {
+class PreSubmitPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      jsonData: props.jsonData,
+    };
+  }
   render() {
     return (
     <Card leftContent={

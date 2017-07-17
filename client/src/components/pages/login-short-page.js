@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import {Link} from 'react-router';
 import Card from './Card';
 
-class LoginShortPage extends Component {
+class LoginShortPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      jsonData: props.jsonData,
+    };
+  }
   render() {
     return (
     <Card leftContent={

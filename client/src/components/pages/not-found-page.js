@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
-class NotFoundPage extends Component {
+class NotFoundPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      jsonData: props.jsonData,
+    };
+  }
 
   render() {
     return (

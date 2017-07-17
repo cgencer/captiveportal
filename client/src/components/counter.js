@@ -36,6 +36,11 @@ class Counter extends Component {
         this.startTimer();
     }
 
+    componentWillUnmount() {
+        this.timer && clearInterval(this.timer);
+        this.timer = false;
+    }
+
     startTimer() {
         if (this.timer == 0) {
             this.timer = setInterval(this.countDown, 1000);

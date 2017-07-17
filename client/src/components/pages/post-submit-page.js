@@ -3,7 +3,13 @@ import {Link} from 'react-router';
 import Card from './Card';
 import Counter from '../Counter';
 
-class PostSubmitPage extends Component {
+class PostSubmitPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      jsonData: props.jsonData,
+    };
+  }
   render() {
     return (
     <Card leftContent={

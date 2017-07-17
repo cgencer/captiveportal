@@ -11,24 +11,33 @@ class LoginPage extends React.Component {
     };
   }
 
+  aFlag(countryCode) {
+    const flagStyle= 'flag flag-' + countryCode;
+    return (
+      <a className="dropdown-item col-4" href="#"><div className={flagStyle} alt={countryCode}></div></a>
+    );
+  }
+
   render() {
 
     const ref = this.state.jsonData;
-    return (
-    <Card leftContent={
-      // left
-      <div className="vcenter">
-        <h5>WiFi Erişimi</h5>
-        <p className="card-text">Günlük toplam 360 dakika ücretsiz WiFi kullanabilmek için SMS aracılığıyla kaydolun.</p>
-      </div>
-    } riteContent={
-      // right
-      <div>
-        <form>
+    var children = ref.flags;
+    var output = children.map(function(child){});
 
+    return (
+      <Card leftContent={
+        // left
+        <div className="vcenter">
+          <h5>{ref.texts.left.header}</h5>
+          <p className="card-text">{ref.texts.left.content}</p>
+        </div>
+      } riteContent={
+        // right
+        <div>
+        <form>
             <div className="col-11 offset-1 row">&nbsp;</div>
             <div className="col-11 offset-1 row name">
-              <h4 className="card-title-grey">{ref.texts.left.header}</h4>
+              <h4 className="card-title-grey">{ref.texts.login.headerName}</h4>
               <div className="col-12">
                 <input type="text" className="centering" name="" /> 
               </div>      
@@ -41,7 +50,7 @@ class LoginPage extends React.Component {
 
                 <div className="col-12 colPhone">
 
-                  <h4 className="card-title-grey">Tel No</h4>
+                  <h4 className="card-title-grey">{ref.texts.login.headerPhone}</h4>
                   <div className="row">
                   <div className="btn-group">
                     <button type="button" className="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,9 +58,9 @@ class LoginPage extends React.Component {
                     </button>
                     <div className="dropdown-menu dropdown-menu-right">
                       <div className="row">
-                      <a className="dropdown-item col-4" href="#"><div className="flag flag-tr" alt="Turkey"></div></a>
-                      <a className="dropdown-item col-4" href="#"><div className="flag flag-us" alt="USA"></div></a>
-                      <a className="dropdown-item col-4" href="#"><div className="flag flag-kz" alt="Kazakhstan"></div></a>
+                      {this.aFlag('tr')}
+                      {this.aFlag('tr')}
+                      {this.aFlag('tr')}
                       </div>
                       <div className="row">
                       <a className="dropdown-item col-4" href="#"><div className="flag flag-cn" alt="China"></div></a>
@@ -79,18 +88,18 @@ class LoginPage extends React.Component {
                 <span className="input-group-addon">
                   <input type="checkbox" />
                 </span>
-                <span className="agreement"><a href="#">Kullanıcı sözleşmesi</a>ni okudum ve kabul ediyorum.</span>
+                <span className="agreement">{ref.texts.login.agree}</span>
               </div>
             </div>
             <div className="col-11 offset-1 row text-center real-buttons">
-              <button type="submit" className="btn btn-success centering">Gönder</button>
+              <button type="submit" className="btn btn-success centering">{ref.texts.login.button1}</button>
             </div>
 
         </form>
-      </div>      
-    } footerContent="Powered by Turkcell" />
+        </div>      
+      } footerContent={ref.texts.footer} />
     );
   }
-}
+};
 
 export default LoginPage;

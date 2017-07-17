@@ -15,6 +15,7 @@ const config = {
     ],
   output: {
     path: __dirname,
+    publicPath: '/',
     filename: 'bundle.js',
   },
   imageWebpackLoader: {

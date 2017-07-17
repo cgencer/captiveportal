@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
 import Card from './Card';
+import ReactLoading from 'react-loading';
 
-class HomePage extends Component {
+class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      jsonData: props.jsonData,
+    };
+  }
   render() {
     return (
     <Card leftContent={
@@ -14,6 +21,7 @@ class HomePage extends Component {
     } riteContent={
       // right
       <div>
+      <ReactLoading type='bubbles' color='#666' />
       </div>      
     } footerContent="Powered by Turkcell" />
     );
