@@ -11,36 +11,40 @@ class PreSubmitPage extends React.Component {
       jsonData: props.jsonData,
     };
   }
+
   render() {
+
+    const ref = this.state.jsonData;
+
     return (
     <Card leftContent={
       // left
       <div className="vcenter">
-        <h5>WiFi Erişimi</h5>
-        <p className="card-text">Günlük toplam 360 dakika ücretsiz WiFi kullanabilmek için SMS aracılığıyla kaydolun.</p>
+        <h5>{ref.texts.left.header}</h5>
+        <p className="card-text">{ref.texts.left.content}</p>
       </div>
     } riteContent={
       // right
       <div>
         <div className="col-12">&nbsp;</div>
         <div className="col-12">
-          <h4 className="card-title-grey">Şifre girmek için kalan süreniz</h4>
+          <h4 className="card-title-grey">{ref.texts.preSubmit.headerTime}</h4>
           <div className="fullsize">
             <Counter secs="15" zapTo="login-page" />
           </div>
-          <h4 className="card-title-grey">SMS Şifresi</h4>
+          <h4 className="card-title-grey">{ref.texts.preSubmit.headerCode}</h4>
           <div className="fullsize">
-            <input type="text" className="centering" name="" />         
+            <input type="text" className="centering" name="" />
           </div>
         </div>
 
         <div className="col-12">&nbsp;</div>
         <div className="col-10 offset-1 real-buttons fullsize">
-          <a href="#" className="btn btn-success centering">Gönder</a>
-          <a href="#" className="btn btn-danger btn-ghosted centering">Numarayı değiştir</a>  
+          <a href="#" className="btn btn-success centering">{ref.texts.preSubmit.button1}</a>
+          <a href="#" className="btn btn-danger btn-ghosted centering">{ref.texts.preSubmit.button2}</a>  
         </div>
-      </div>      
-    } footerContent="Powered by Turkcell" />
+      </div>
+      } footerContent={ref.texts.footer} />
     );
   }
 }

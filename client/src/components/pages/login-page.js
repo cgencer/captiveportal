@@ -5,7 +5,6 @@ import Card from './Card';
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.jsonData);
     this.state = {
       jsonData: props.jsonData,
     };
@@ -94,7 +93,7 @@ class LoginPage extends React.Component {
             </div>
 
         </form>
-        </div>      
+        </div>
       } footerContent={ref.texts.footer} />
     );
   }
