@@ -18,11 +18,23 @@ class LoginPage extends React.Component {
     );
   }
 
+  allFlags() {
+    return (
+      <div>
+        <div className="row">      
+        {this.state.jsonData.flags.map(function(daflag, index) {
+          const flagStyle= 'flag flag-' + daflag;
+          const rows = ((index % 3 === 0) && (index !== 0)) ? '</div><div className="row">' : '';
+          return <a className="dropdown-item col-4" href="#"><div className={flagStyle} alt={daflag}></div></a>
+        })}
+        </div>
+      </div>
+    );
+  }
+
   render() {
 
     const ref = this.state.jsonData;
-    var children = ref.flags;
-    var output = children.map(function(child){});
 
     return (
       <Card leftContent={
@@ -57,21 +69,7 @@ class LoginPage extends React.Component {
                       <span className="sr-only">country</span>
                     </button>
                     <div className="dropdown-menu dropdown-menu-right">
-                      <div className="row">
-                      {this.aFlag('tr')}
-                      {this.aFlag('tr')}
-                      {this.aFlag('tr')}
-                      </div>
-                      <div className="row">
-                      <a className="dropdown-item col-4" href="#"><div className="flag flag-cn" alt="China"></div></a>
-                      <a className="dropdown-item col-4" href="#"><div className="flag flag-jp" alt="Japan"></div></a>
-                      <a className="dropdown-item col-4" href="#"><div className="flag flag-pk" alt="Pakistan"></div></a>
-                      </div>
-                      <div className="row">
-                      <a className="dropdown-item col-4" href="#"><div className="flag flag-tr" alt="Turkey"></div></a>
-                      <a className="dropdown-item col-4" href="#"><div className="flag flag-us" alt="USA"></div></a>
-                      <a className="dropdown-item col-4" href="#"><div className="flag flag-kz" alt="Kazakhstan"></div></a>
-                      </div>
+                      {this.allFlags()}
                     </div>
                   </div>
                     <div className="col-3"><input type="text" className="centering phone-prefix" name="" value="(+90)" disabled="disabled" /></div>
