@@ -1,10 +1,12 @@
 {
 	"data": {
 		"hashCheck": "OK",
-		"hash": "#123qwe#",
+		"hash": "123qwe#",
 	    "loginShortcut": "false",
-	    "template": "",
+	    "template": "templateCodeComesHere-ifEmptyLoginPageWontLoadEver!",
 	    "language": "tr",
+	    "testCode": "mc68k",
+	    "phone": "",
 	    "timerSecs": 360,
 	    "remainingTime": 2400,
 	    "flags": ["tr", "en", "de", "ua", "cn", "ru"],

@@ -60,23 +60,25 @@ class App extends React.Component {
 
   componentWillMount(){
 
+    var hash = location.hash.substr(1, location.hash.length);
+    console.log(':::'+hash);
     axios
     .post('http://localhost:3000/api/spit/out?rand='+Math.floor(Date.now() / 1000), {
       responseType: 'json',
       withCredentials: false,
       data: {
-        token: location.hash
+        token: hash
       },
     })
     .then( res => {
       if(
         res.statusText === "OK" &&
         res.data.data.hashCheck === "OK" &&
-        location.hash === res.data.data.hash
+        hash === res.data.data.hash
       ) {
         this.setState({ 
           jsonData: res.data.data, 
-          token: location.hash
+          token: hash
         });
         browserHistory.push('/login-page');
       } 
