@@ -61,9 +61,12 @@ class App extends React.Component {
   componentWillMount(){
 
     axios
-    .get('http://localhost:3000/api/spit/out?rand='+Math.floor(Date.now() / 1000), {
+    .post('http://localhost:3000/api/spit/out?rand='+Math.floor(Date.now() / 1000), {
       responseType: 'json',
-      withCredentials: false
+      withCredentials: false,
+      data: {
+        token: location.hash
+      },
     })
     .then( res => {
       if(
