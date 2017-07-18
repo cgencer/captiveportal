@@ -48,5 +48,7 @@ class PreSubmitPage extends React.Component {
     );
   }
 }
-
+PreSubmitPage.defaultProps = {
+  displayName: 'PreSubmit Page'
+}
 export default PreSubmitPage;

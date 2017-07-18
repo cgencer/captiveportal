@@ -3,18 +3,13 @@ import {Link} from 'react-router';
 import Card from './Card';
 
 class LoginPage extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
+      token: props.token,
       jsonData: props.jsonData
     };
-  }
-
-  aFlag(countryCode) {
-    const flagStyle= 'flag flag-' + countryCode;
-    return (
-      <a className="dropdown-item col-4" href="#"><div className={flagStyle} alt={countryCode}></div></a>
-    );
   }
 
   allFlags() {
@@ -32,14 +27,13 @@ class LoginPage extends React.Component {
   }
 
   render() {
-
     const ref = this.state.jsonData;
 
     return (
       <Card leftContent={
         // left
         <div className="vcenter">
-          <h5>{ref.texts.left.header}</h5>
+          <h5>{ref.texts.left.header}:::</h5>
           <p className="card-text">{ref.texts.left.content}</p>
         </div>
       } riteContent={
@@ -98,5 +92,7 @@ class LoginPage extends React.Component {
     );
   }
 };
-
+LoginPage.defaultProps = {
+  displayName: 'LoginPage'
+}
 export default LoginPage;

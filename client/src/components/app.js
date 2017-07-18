@@ -4,6 +4,7 @@ import HeaderTemplate from './template/header';
 import FooterTemplate from './template/footer';
 import axios from 'axios';
 const _ = require('lodash/core');
+const queryString = require('query-string');
 
 class App extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class App extends React.Component {
     this.state = {
       isLoaded: false,
       path: props.location.pathname,
+      token: '',
       jsonData: {
           loginShortcut: "",
           template: "",
@@ -56,21 +58,24 @@ class App extends React.Component {
       };
   }
 
-  componentDidMount(){
+  componentWillMount(){
 
     axios
     .get('http://localhost:3000/api/spit/out?rand='+Math.floor(Date.now() / 1000), {
       responseType: 'json',
-      withCredentials: false,
-      onDownloadProgress: event => {
-        const progress = Math.round((event.loaded * 100) / event.total);
-        if(progress == 100) browserHistory.push('/login-page');
-      }
+      withCredentials: false
     })
     .then( res => {
-      if(res.statusText === "OK") {
-        this.setState({ jsonData: res.data.data, isLoaded: true });
-        console.log(res.data);
+      if(
+        res.statusText === "OK" &&
+        res.data.data.hashCheck === "OK" &&
+        location.hash === res.data.data.hash
+      ) {
+        this.setState({ 
+          jsonData: res.data.data, 
+          token: location.hash
+        });
+        browserHistory.push('/login-page');
       } 
     })
     .catch((err)=> {
@@ -82,30 +87,16 @@ class App extends React.Component {
   }
 
   handleRef(divElement) {
-/*
-    if(divElement && !_.isUndefined(this.state) && !this.state.isLoaded) {
-      axios
-      .get('http://localhost:3000/api/spit/out?rand='+Math.floor(Date.now() / 1000))
-      .then( res => {
-        this.setState({ jsonData: res.data.data });
-        this.setState({ jsonLoaded: true });
-        console.log(res.data);
-//      this.setState(this.state);
-      })
-      .catch((err)=> {
-      })
-    }
-*/
   }
 
   render() {
-    return (this.props.location.pathname === '/') ?
+    return (this.props.location.pathname === '/') ? (
       <div>
         <div className="container">
           {this.props.children}
         </div>
       </div>
-    : (
+    ) : (
       <div ref={this.handleRef} className="home">
         <div className="container">
           {React.cloneElement(this.props.children, this.state)}
@@ -116,5 +107,7 @@ class App extends React.Component {
   }
 
 }
-
+App.defaultProps = {
+  displayName: 'App Root'
+}
 export default App;
