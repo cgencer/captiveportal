@@ -13,6 +13,7 @@ class App extends React.Component {
       isLoaded: false,
       path: props.location.pathname,
       token: '',
+      data: {},
       jsonData: {
           loginShortcut: "",
           template: "",

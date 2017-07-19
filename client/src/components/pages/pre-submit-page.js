@@ -61,7 +61,12 @@ class PreSubmitPage extends React.Component {
     const ref = this.state.jsonData;
 
     return (
-    <Card leftContent={
+      <Card 
+        logo={ref.images.logo} 
+        logoStyle={{backgroundColor: ref.colors.back.logo}}
+        leftStyle={{backgroundColor: ref.colors.back.left}} 
+        rightStyle={{backgroundColor: ref.colors.back.rite}} 
+        leftContent={
       // left
       <div>
       <h4>{this.state.phone}</h4>

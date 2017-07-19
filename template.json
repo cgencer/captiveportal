@@ -26,12 +26,16 @@
 	        }
 	    },
 	    "colors": {
-	        "logoBack": "#ffffff",
-	        "headers": "",
-	        "left": "",
-	        "rite": "",
-	        "link": "",
-	        "inputs": ""
+	    	"back": {
+		        "logo": "#ffffff",
+		        "left": "#ffffff",
+	    	    "rite": "#ffffff"
+	    	},
+	    	"text": {
+	        	"header": "",
+	        	"link": "",
+	        	"input": ""
+	    	}
 	    },
 	    "texts": {
 	        "left": {

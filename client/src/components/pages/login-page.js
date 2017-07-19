@@ -47,6 +47,8 @@ class LoginPage extends React.Component {
         console.log(error);
       });
 
+    } else {
+      console.log(this.props.location.state);
     }
   }
 
@@ -68,7 +70,12 @@ class LoginPage extends React.Component {
     const ref = this.state.jsonData;
 
     return (
-      <Card logo={ref.images.logo} leftContent={
+      <Card 
+        logo={ref.images.logo} 
+        logoStyle={{backgroundColor: ref.colors.back.logo}}
+        leftStyle={{backgroundColor: ref.colors.back.left}} 
+        rightStyle={{backgroundColor: ref.colors.back.rite}} 
+        leftContent={
         // left
         <div className="vcenter">
           <h5>{ref.texts.left.header}:::</h5>
