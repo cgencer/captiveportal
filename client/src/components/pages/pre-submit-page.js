@@ -63,9 +63,12 @@ class PreSubmitPage extends React.Component {
     return (
     <Card leftContent={
       // left
+      <div>
+      <h4>{this.state.phone}</h4>
       <div className="vcenter">
         <h5>{ref.texts.left.header}</h5>
         <p className="card-text">{ref.texts.left.content}</p>
+      </div>
       </div>
     } riteContent={
       // right

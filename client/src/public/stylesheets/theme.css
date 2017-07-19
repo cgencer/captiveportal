@@ -138,7 +138,11 @@ and (min-width: 581px) {
 		display:block;
 		padding-top:1rem;
 		padding-bottom:1rem;
-	}    
+		width:100%;
+	}
+	.logoDesktop img {
+		margin:0 auto;
+	}
 	.loginCard {
 		width: 34rem;
 		margin-top:50px;

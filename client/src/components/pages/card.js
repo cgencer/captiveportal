@@ -8,11 +8,19 @@ const Card = (props) => {
     <div className="card mx-auto rounded loginCard">
       <div className="container-fluid row">
 
+        <div className="logoMobile">
+          <img src={props.logo} alt="Operator logo" />
+        </div>
+
         <div className="col-sm-5 roundedCorners-leftSide" id="left-part">
           {props.leftContent}
         </div>
 
         <div className="col-sm-7 roundedCorners-rightSide" id="right-part">
+
+          <div className="logoDesktop">
+            <img src={props.logo} alt="Operator logo" />
+          </div>
 
           <div id="content">
           {props.riteContent}

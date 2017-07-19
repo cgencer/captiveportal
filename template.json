@@ -19,7 +19,7 @@
 	    "flags": ["tr", "en", "de", "ua", "cn", "ru"],
 	    "images": {
 	        "back": "back",
-	        "logo": "turkcell-logo.png",
+	        "logo": "/src/public/img/turkcell-logo.png",
 	        "left": {
 	            "dark": "left-back.png",
 	            "lite": "left-back-white.png"

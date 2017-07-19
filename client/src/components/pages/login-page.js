@@ -68,7 +68,7 @@ class LoginPage extends React.Component {
     const ref = this.state.jsonData;
 
     return (
-      <Card leftContent={
+      <Card logo={ref.images.logo} leftContent={
         // left
         <div className="vcenter">
           <h5>{ref.texts.left.header}:::</h5>
