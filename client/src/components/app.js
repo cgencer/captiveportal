@@ -71,7 +71,7 @@ class App extends React.Component {
       if(
         res.statusText === "OK" &&
         res.data.data.hashCheck === "OK" &&
-        hash === res.data.data.hash
+        hash === res.data.data.testValues.hash
       ) {
         this.setState({ 
           jsonData: res.data.data, 

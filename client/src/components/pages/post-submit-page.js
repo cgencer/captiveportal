@@ -29,7 +29,7 @@ class PostSubmitPage extends React.Component {
               <div className="col-12">
                 <h4 className="card-title-grey">{ref.texts.postSubmit.header}</h4>
                 <div className="fullsize hr-mins">
-                  <Counter secs="9000" zapTo="login-page" withHours="true" />
+                  <Counter secs={ref.timers.total} zapTo="login-page" withHours="true" />
                   <h5 className="card-title-grey hrs">{ref.texts.postSubmit.subHr}</h5>
                   <h5 className="card-title-grey mins">{ref.texts.postSubmit.subMin}</h5>
                 </div>

@@ -9,7 +9,7 @@ import axios from 'axios';
 class PreSubmitPage extends React.Component {
   constructor(props) {
     super(props);
-//    if(props.jsonData.template.length === 0) browserHistory.push('/');
+    if(props.jsonData.template.length === 0) browserHistory.push('/');
     this.state = {
       jsonData: props.jsonData,
       data: {
@@ -28,7 +28,7 @@ class PreSubmitPage extends React.Component {
   submitForm(e) {
     e.preventDefault();
 
-    if( this.refs.code.value === this.state.jsonData.testCode &&
+    if( this.refs.code.value === this.state.jsonData.testValues.sms &&
         this.refs.token.value === this.state.data.token
       ) {
       let dataset = {
@@ -74,7 +74,7 @@ class PreSubmitPage extends React.Component {
         <div className="col-12">
           <h4 className="card-title-grey">{ref.texts.preSubmit.headerTime}</h4>
           <div className="fullsize">
-            <Counter secs={ref.timerSecs} zapTo="login-page" />
+            <Counter secs={ref.timers.sms} zapTo="login-page" />
           </div>
           <h4 className="card-title-grey">{ref.texts.preSubmit.headerCode}</h4>
           <span className="help-block">{this.state.errors}</span>

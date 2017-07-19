@@ -1,23 +1,22 @@
 {
 	"data": {
 		"hashCheck": "OK",
-		"hash": "123qwe#",
 	    "maskedLogin": "false",
 	    "template": "templateCodeComesHere-ifEmptyLoginPageWontLoadEver!",
-	    "language": "tr",
-	    "testCode": "mc68k",
-	    "phone": "",
-	    "timerSecs": 30,
-	    "remainingTime": 2400,
+	    "current": {
+		    "language": "tr",
+		    "prefix": "(+90)",
+		    "phone": ""
+	    },
+	    "testValues": {
+	    	"sms": "mc68k",
+			"hash": "123qwe#"
+	    },
+	    "timers": {
+		    "sms": 30,
+		    "total": 2400	    	
+	    },
 	    "flags": ["tr", "en", "de", "ua", "cn", "ru"],
-	    "countries": [
-	    	{"code": "tr", "prefix": "(+90)"},
-	    	{"code": "en", "prefix": "(+1)"},
-	    	{"code": "gb", "prefix": "(+1)"},
-	    	{"code": "de", "prefix": "(+49)"},
-	    	{"code": "ua", "prefix": "(+90)"},
-	    	{"code": "cn", "prefix": "(+90)"}
-	    ],
 	    "images": {
 	        "back": "back",
 	        "logo": "turkcell-logo.png",
