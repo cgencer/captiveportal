@@ -2,12 +2,12 @@
 	"data": {
 		"hashCheck": "OK",
 		"hash": "123qwe#",
-	    "loginShortcut": "false",
+	    "maskedLogin": "false",
 	    "template": "templateCodeComesHere-ifEmptyLoginPageWontLoadEver!",
 	    "language": "tr",
 	    "testCode": "mc68k",
 	    "phone": "",
-	    "timerSecs": 360,
+	    "timerSecs": 30,
 	    "remainingTime": 2400,
 	    "flags": ["tr", "en", "de", "ua", "cn", "ru"],
 	    "countries": [
@@ -19,13 +19,7 @@
 	    	{"code": "cn", "prefix": "(+90)"}
 	    ],
 	    "images": {
-	        "back": {
-	            "200": "back-200.png",
-	            "320": "back-320.png",
-	            "640": "back-640.png",
-	            "800": "back-800.png",
-	            "1024": "back-1024.png"
-	        },
+	        "back": "back",
 	        "logo": "turkcell-logo.png",
 	        "left": {
 	            "dark": "left-back.png",

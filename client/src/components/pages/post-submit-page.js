@@ -37,7 +37,7 @@ class PostSubmitPage extends React.Component {
 
               <div className="col-12">&nbsp;</div>
               <div className="col-10 offset-1 real-buttons fullsize">
-                <a href="#" className="btn btn-success centering">{ref.texts.postSubmit.button1}</a>
+                <button className="btn btn-success centering">{ref.texts.postSubmit.button1}</button>
               </div>
   
             </div>

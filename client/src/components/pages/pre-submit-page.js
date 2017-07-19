@@ -1,80 +1,58 @@
 import React, { Component } from 'react';
 import {Link, browserHistory} from 'react-router';
 import * as actions from '../../actions/auth';
+import { loginUser } from '../../actions/auth';
 import Card from './Card';
 import Counter from '../Counter';
+import axios from 'axios';
 
 class PreSubmitPage extends React.Component {
   constructor(props) {
     super(props);
-    if(props.jsonData.template.length === 0) browserHistory.push('/');
+//    if(props.jsonData.template.length === 0) browserHistory.push('/');
     this.state = {
       jsonData: props.jsonData,
       data: {
         token: props.token,
         phone: props.phone,
-        code: '',
+        name: props.name
       },
-      loading: false,
-      errors: {
-      }
     };
   }
 
-  handleSubmit(e) {
+  changePhone(e) {
     e.preventDefault();
-    var errors = this._validate();
-    if(Object.keys(errors).length != 0) {
-      this.setState({
-        errors: errors
+    browserHistory.push('/login-page');
+  }
+
+  submitForm(e) {
+    e.preventDefault();
+
+    if( this.refs.code.value === this.state.jsonData.testCode &&
+        this.refs.token.value === this.state.data.token
+      ) {
+      let dataset = {
+        code: this.refs.code.value,
+        token: this.state.token,
+        phone: this.state.data.phone,
+        name: this.state.data.name
+      }
+      this.setState({ data: dataset });
+
+      axios({
+        method: 'post',
+        baseURL: 'http://localhost:3000/api/',
+        url: '/login',
+        data: dataset
+      }).then(function (response) {
+        if(response.data.result === "OK") {
+//          this.props.loginUser({ phone, token });
+          browserHistory.push('/post-submit-page');
+        } 
+      }).catch(function(error) {
+        console.log(error);
       });
-      return;
-    }
-    var xhr = this._create();
-    xhr.done(this._onSuccess)
-      .fail(this._onError)
-      .always(this.hideLoading)
-  }
 
-    hideLoading() {
-      this.setState({loading: false});
-    }
-
-    _create() {
-    return $.ajax({
-      url: '/api/users',
-      type: 'POST',
-      data: this.state.data,
-      beforeSend: function () {
-        this.setState({loading: true});
-      }.bind(this)
-    })
-  }
-
-  _validate() {
-    var errors = {}
-    if(this.state.code == "") {
-      errors.code = "Code is required";
-    }
-    return errors;
-  }
-
-  _onSuccess(data) {
-    this.refs.code_form.getDOMNode().reset();
-    this.setState(this.getInitialState());
-    // show success message
-  }
-
-  _onError(data) {
-    var message = "Failed to create the user";
-    var res = data.responseJSON;
-    if(res.message) {
-      message = data.responseJSON.message;
-    }
-    if(res.errors) {
-      this.setState({
-        errors: res.errors
-      });
     }
   }
 
@@ -92,26 +70,26 @@ class PreSubmitPage extends React.Component {
     } riteContent={
       // right
       <div>
-        <div className="col-12">&nbsp;</div>
+        <div className="col-12">&nbsp;</div><form ref="code_form" name="code_form" id="code_form" onSubmit={this.submitForm.bind(this)}>
         <div className="col-12">
           <h4 className="card-title-grey">{ref.texts.preSubmit.headerTime}</h4>
           <div className="fullsize">
-            <Counter secs="15" zapTo="login-page" />
+            <Counter secs={ref.timerSecs} zapTo="login-page" />
           </div>
           <h4 className="card-title-grey">{ref.texts.preSubmit.headerCode}</h4>
           <span className="help-block">{this.state.errors}</span>
-          <div className="fullsize"><form ref="code_form" onSubmit={this.handleSubmit}>
-            <input type="hidden" ref="token" id="token" name="token" value={this.state.token} />
-            <input type="hidden" ref="phone" id="phone" name="phone" value={this.state.phone} />
-            <input type="text" className="centering" ref="code" id="code" name="code" />
-          </form></div>
+          <div className="fullsize">
+            <input type="hidden" ref="token" id="token" name="token" value={this.state.data.token} />
+            <input type="hidden" ref="phone" id="phone" name="phone" value={this.state.data.phone} />
+            <input type="text" ref="code" id="code" name="code" />
+          </div>
         </div>
 
         <div className="col-12">&nbsp;</div>
         <div className="col-10 offset-1 real-buttons fullsize">
-          <a href="#" className="btn btn-success centering">{ref.texts.preSubmit.button1}</a>
-          <a href="#" className="btn btn-danger btn-ghosted centering">{ref.texts.preSubmit.button2}</a>  
-        </div>
+          <button type="submit" ref="submitForm" className="btn btn-success centering">{ref.texts.preSubmit.button1}</button>
+          <button type="button" ref="changePhone" onClick={this.changePhone.bind(this)} className="btn btn-danger btn-ghosted centering">{ref.texts.preSubmit.button2}</button>
+        </div></form>
       </div>
       } footerContent={ref.texts.footer} />
     );

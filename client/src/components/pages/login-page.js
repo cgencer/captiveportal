@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link, browserHistory} from 'react-router';
 import Card from './Card';
+import axios from 'axios';
 
 class LoginPage extends React.Component {
 
@@ -17,69 +18,35 @@ class LoginPage extends React.Component {
         code: '',
         name: ''
       },
-      loading: false,
-      errors: {
-      }
     };
   }
 
-  handleChange(e) {
-    this.setState({[e.target.name]: e.target.value})
-  }
-
-  handleSubmit(e) {
+  submitForm(e) {
     e.preventDefault();
-//    var errors = this._validate();
-    var errors = [];
-    if(Object.keys(this.state.errors).length != 0) {
-      this.setState({ errors: errors });
-      return;
-    }
-    var xhr = this._create();
-    xhr.done(this._onSuccess)
-      .fail(this._onError)
-      .always(this.hideLoading)
-  }
 
-  hideLoading() {
-    this.setState({loading: false});
-  }
+    if( this.refs.token.value === this.state.token &&
+        this.refs.agree.value === 'on'
+      ) {
+      let dataset = {
+        token: this.state.token,
+        phone: this.refs.prefix.value + this.refs.number.value,
+        name: this.refs.name.value
+      }
+      this.setState({ data: dataset });
 
-  _create() {
-    return $.ajax({
-      url: '/api/first-step',
-      type: 'POST',
-      data: this.state.data,
-      beforeSend: function () {
-        this.setState({loading: true});
-      }.bind(this)
-    })
-  }
-
-  _validate() {
-    var errors = {}
-    if(this.state.code == "") {
-      errors.code = "Code is required";
-    }
-    return errors;
-  }
-
-  _onSuccess(data) {
-    this.refs.signup_form.getDOMNode().reset();
-    this.setState(this.getInitialState());
-    // show success message
-  }
-
-  _onError(data) {
-    var message = "Failed to create the user";
-    var res = data.responseJSON;
-    if(res.message) {
-      message = data.responseJSON.message;
-    }
-    if(res.errors) {
-      this.setState({
-        errors: res.errors
+      axios({
+        method: 'POST',
+        baseURL: 'http://localhost:3000/api/',
+        url: '/prelogin',
+        data: dataset
+      }).then(function (response) {
+        if(response.data.result === "OK") {
+          browserHistory.push('/pre-submit-page');
+        } 
+      }).catch(function(error) {
+        console.log(error);
       });
+
     }
   }
 
@@ -110,13 +77,13 @@ class LoginPage extends React.Component {
       } riteContent={
         // right
         <div>
-          <form ref="signup_form" onSubmit={this.handleSubmit}>
+          <form ref="login_form" onSubmit={this.submitForm.bind(this)}>
             <input type="hidden" ref="token" id="token" name="token" value={this.state.token} />
             <div className="col-11 offset-1 row">&nbsp;</div>
             <div className="col-11 offset-1 row name">
               <h4 className="card-title-grey">{ref.texts.login.headerName}</h4>
               <div className="col-12">
-                <input type="text" className="centering" name="user-name" id="user-name" /> 
+                <input type="text" className="centering" ref="name" name="name" id="name" /> 
               </div>      
             </div>
 
@@ -136,8 +103,8 @@ class LoginPage extends React.Component {
                       {this.allFlags()}
                     </div>
                   </div>
-                    <div className="col-3"><input type="text" id="user-phone-prefix" name="user-phone-prefix" value="(+90)" disabled="disabled" /></div>
-                    <div className="col-8"><input type="text" id="user-phone-prefix" name="user-phone-number" onChange={this.handleChange.bind(this)} /></div>
+                    <div className="col-3"><input type="text" ref="prefix" id="prefix" name="prefix" value="(+90)" disabled="disabled" /></div>
+                    <div className="col-8"><input type="text" ref="number" id="number" name="number" /></div>
                   </div>
                 </div>
               </div>

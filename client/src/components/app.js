@@ -61,16 +61,13 @@ class App extends React.Component {
   componentWillMount(){
 
     var hash = location.hash.substr(1, location.hash.length);
-    console.log(':::'+hash);
-    axios
-    .post('http://localhost:3000/api/spit/out?rand='+Math.floor(Date.now() / 1000), {
-      responseType: 'json',
-      withCredentials: false,
-      data: {
-        token: hash
-      },
-    })
-    .then( res => {
+
+    axios({
+      method: 'POST',
+      baseURL: 'http://localhost:3000/api/',
+      url: '/spit/out?rand='+Math.floor(Date.now() / 1000),
+      data: {token: hash},
+    }).then(res => {
       if(
         res.statusText === "OK" &&
         res.data.data.hashCheck === "OK" &&
@@ -82,19 +79,31 @@ class App extends React.Component {
         });
         browserHistory.push('/login-page');
       } 
-    })
-    .catch((err)=> {
-    })
+    }).catch(function(error) {
+      console.log(error);
+    });
   }
 
   componentWillUnmount() {
     this.serverRequest.abort();
   }
 
-  handleRef(divElement) {
+  uuid() {
+    var i, random;
+    var uuid = '';
+    for (i = 0; i < 32; i++) {
+      random = Math.random() * 16 | 0;
+      if (i === 8 || i === 12 || i === 16 || i === 20) {
+        uuid += '-';
+      }
+      uuid += (i === 12 ? 4 : (i === 16 ? (random & 3 | 8) : random)).toString(16);
+    }
+    return uuid;
   }
 
   render() {
+    const ref = this.state.jsonData;
+
     return (this.props.location.pathname === '/') ? (
       <div>
         <div className="container">
@@ -102,7 +111,7 @@ class App extends React.Component {
         </div>
       </div>
     ) : (
-      <div ref={this.handleRef} className="home">
+      <div className="home">
         <div className="container">
           {React.cloneElement(this.props.children, this.state)}
         </div>

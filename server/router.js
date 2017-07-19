@@ -50,6 +50,9 @@ module.exports = function (app) {
   spitRoutes.get('/out', SpitController.out);
   spitRoutes.post('/out', SpitController.out);
 
+  apiRoutes.post('/prelogin', SpitController.prelogin);
+  apiRoutes.post('/login', SpitController.login);
+
   //= ========================
   // User Routes
   //= ========================
