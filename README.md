@@ -4,7 +4,7 @@
       Wizard: Bağımsız olarak yapınız içine yerleştirmeniz için.
       Client: yine aynı şekilde.
       Server: Sizin tarafınızdaki backend'e bağıl hareket etmek yerine node.js üzerinde çalışan bir backend API'si.
-      Dilerseniz buradaki iletişimleri kendi backend'inize uyarlarsınız, dilerseniz de server'ı da alıp az bir değişiklikle
+      Dilerseniz buradaki iletişimleri kendi backend'inize uyarlarsınız, dilerseniz de server'ı da dahil edip az bir değişiklikle
       doğrudan kullanabilirsiniz.
 
 Akışı biraz anlatayım:
