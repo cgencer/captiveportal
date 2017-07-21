@@ -28,7 +28,7 @@ export default (
     <Route path="login-page" component={LoginPage} />
     <Route path="login-short-page" component={LoginShortPage} />
     <Route path="pre-submit-page" component={PreSubmitPage} />
-    <Route path="post-submit-page" component={RequireAuth(PostSubmitPage)} />
+    <Route path="post-submit-page" component={PostSubmitPage} />
 
     <Route path="*" component={NotFoundPage} />
   </Route>

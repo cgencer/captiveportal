@@ -8,7 +8,7 @@ class LoginPage extends React.Component {
   constructor(props) {
     super(props);
     // CHECK: If template json cant be grabbed, jump to indexpage once more
-//    if(props.jsonData.template.length === 0) browserHistory.push('/');
+//    if(props.jsonData.config.template.length === 0) browserHistory.push('/');
     this.state = {
       token: props.token,
       jsonData: props.jsonData,
@@ -69,6 +69,12 @@ class LoginPage extends React.Component {
   render() {
     const ref = this.state.jsonData;
 
+    let maskedPhone = "";
+    if (ref.client.phone !== "" && ref.config.maskedLogin === true) {
+      let maskedPhone = ref.client.phone;
+      maskedPhone = maskedPhone.substr(0, maskedPhone.length-2);
+    }
+
     return (
       <Card 
         logo={ref.images.logo} 
@@ -110,8 +116,8 @@ class LoginPage extends React.Component {
                       {this.allFlags()}
                     </div>
                   </div>
-                    <div className="col-3"><input type="text" ref="prefix" id="prefix" name="prefix" value="(+90)" disabled="disabled" /></div>
-                    <div className="col-8"><input type="text" ref="number" id="number" name="number" /></div>
+                    <div className="col-3"><input type="text" ref="prefix" id="prefix" name="prefix" value={ref.client.prefix} disabled="disabled" /></div>
+                    <div className="col-8">{maskedPhone}<input type="text" ref="number" id="number" name="number" /></div>
                   </div>
                 </div>
               </div>

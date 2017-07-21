@@ -4,6 +4,10 @@ html, body{
 .home {
 	padding-top: 50px;
 	text-align: center;
+	height: 100%;
+}
+.wrapper {
+	height: 100%;	
 }
 .flag {
     background: url('../img/flags.png') no-repeat;

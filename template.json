@@ -1,12 +1,14 @@
 {
 	"data": {
-		"hashCheck": "OK",
-	    "maskedLogin": "false",
-	    "template": "templateCodeComesHere-ifEmptyLoginPageWontLoadEver!",
-	    "current": {
+		"config": {
+			"hashCheck": "OK",
+		    "maskedLogin": "config",
+		    "template": "templateCodeComesHere-ifEmptyLoginPageWontLoadEver!"
+		},
+	    "client": {
 		    "language": "tr",
-		    "prefix": "(+90)",
-		    "phone": ""
+		    "prefix": "+90",
+		    "phone": "554 7666512"
 	    },
 	    "testValues": {
 	    	"sms": "mc68k",

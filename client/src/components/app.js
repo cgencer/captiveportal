@@ -18,42 +18,29 @@ class App extends React.Component {
           loginShortcut: "",
           template: "",
           language: "",
-          timerSecs: 0,
+          timers: {
+            sms: 30,
+            total: 2400       
+          },
+          client: {
+            language: "tr",
+            prefix: "+90",
+            phone: ""
+          },
+          testValues: {
+            "sms": "mc68k",
+            "hash": "123qwe#"
+          },
           flags: [],
           images: {},
           colors: {},
           texts: {
-            left: {
-              "header": "Adınız",
-              "content": ""
-            },
+            left: {},
             footer: "",
-            login: {
-              "headerName": "",
-              "headerPhone": "",
-              "headerCountry": "",
-              "agree": "",
-              "button1": ""
-            },
-            loginShort: {
-              "header": "",
-              "button1": ""
-            },
-            preSubmit: {
-              "headerTime": "",
-              "headerCode": "",
-              "button1": "",
-              "button2": ""
-            },
-            postSubmit: {
-              "header": "",
-              "headerExtras1": "",
-              "headerExtras2": "",
-              "headerExtras3": "",
-              "subHr": "",
-              "subMin": "",
-              "button1": ""
-            }
+            login: {},
+            loginShort: {},
+            preSubmit: {},
+            postSubmit: {}
           }
         }
       };
@@ -71,7 +58,7 @@ class App extends React.Component {
     }).then(res => {
       if(
         res.statusText === "OK" &&
-        res.data.data.hashCheck === "OK" &&
+        res.data.data.config.hashCheck === "OK" &&
         hash === res.data.data.testValues.hash
       ) {
         this.setState({ 

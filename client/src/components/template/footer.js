@@ -59,12 +59,6 @@ class FooterTemplate extends Component {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <nav>
-                <ul className="footer-nav">
-                  {this.renderLinks()}
-                </ul>
-              </nav>
-              <p className="copyright">© {year}, Your Site. All Rights Reserved.</p>
             </div>
           </div>
         </div>

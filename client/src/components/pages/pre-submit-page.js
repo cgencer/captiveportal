@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link, browserHistory} from 'react-router';
+import cookie from 'react-cookie';
 import * as actions from '../../actions/auth';
 import { loginUser } from '../../actions/auth';
 import Card from './Card';
@@ -9,7 +10,7 @@ import axios from 'axios';
 class PreSubmitPage extends React.Component {
   constructor(props) {
     super(props);
-    if(props.jsonData.template.length === 0) browserHistory.push('/');
+    if(props.jsonData.config.template.length === 0) browserHistory.push('/');
     this.state = {
       jsonData: props.jsonData,
       data: {
@@ -46,7 +47,6 @@ class PreSubmitPage extends React.Component {
         data: dataset
       }).then(function (response) {
         if(response.data.result === "OK") {
-//          this.props.loginUser({ phone, token });
           browserHistory.push('/post-submit-page');
         } 
       }).catch(function(error) {
