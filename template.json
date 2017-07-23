@@ -12,7 +12,7 @@
 	    },
 	    "testValues": {
 	    	"sms": "mc68k",
-			"hash": "123qwe#"
+			"hash": "123qwe"
 	    },
 	    "timers": {
 		    "sms": 30,

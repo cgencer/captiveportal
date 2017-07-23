@@ -11,6 +11,9 @@ class LoginPage extends React.Component {
 //    if(props.jsonData.config.template.length === 0) browserHistory.push('/');
     this.state = {
       token: props.token,
+      props: props,
+      lang: props.location.query.lang,
+      hash: props.location.query.hash,
       jsonData: props.jsonData,
       data: {
         token: props.token,
@@ -52,14 +55,21 @@ class LoginPage extends React.Component {
     }
   }
 
-  allFlags() {
+  selectFlag() {
+    console.log('flag selected.');
+  }
+
+  allFlags(hash) {
+    var diz = this;
+    console.log('........>'+hash);
     return (
       <div>
         <div className="row">      
         {this.state.jsonData.flags.map(function(daflag, index) {
           const flagStyle= 'flag flag-' + daflag;
           const rows = ((index % 3 === 0) && (index !== 0)) ? '</div><div className="row">' : '';
-          return <a className="dropdown-item col-4" href="#"><div className={flagStyle} alt={daflag}></div></a>
+          const linko = '/?hash=' + hash + '&lang=' + diz.state.jsonData.flags[index];
+          return <a className="dropdown-item col-4" href={linko}><div className={flagStyle} alt={daflag}></div></a>
         })}
         </div>
       </div>
@@ -118,7 +128,7 @@ class LoginPage extends React.Component {
                       <span className="sr-only">country</span>
                     </button>
                     <div className="dropdown-menu dropdown-menu-right">
-                      {this.allFlags()}
+                      {this.allFlags(this.state.hash)}
                     </div>
                   </div>
                     <div className="col-3"><input type="text" ref="prefix" id="prefix" name="prefix" value={ref.client.prefix} disabled="disabled" /></div>

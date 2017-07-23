@@ -15,7 +15,7 @@ class HomePage extends React.Component {
     return (
       <div className="loadingSign">
         <ReactLoading type='bubbles' color='#666' />
-      </div>      
+      </div>
     );
   }
 }

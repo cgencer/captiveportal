@@ -9,10 +9,12 @@ const queryString = require('query-string');
 class App extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       isLoaded: false,
       path: props.location.pathname,
       token: '',
+      props: props,
       data: {},
       jsonData: {
           loginShortcut: "",
@@ -48,13 +50,16 @@ class App extends React.Component {
 
   componentWillMount(){
 
-    var hash = location.hash.substr(1, location.hash.length);
+//    var hash = location.hash.substr(1, location.hash.length);
+    var hash = this.state.props.location.query.hash;
+    var lang = this.state.props.location.query.lang;
+    lang = (lang === "") ? 'tr' : lang;
 
     axios({
       method: 'POST',
       baseURL: 'http://localhost:3000/api/',
       url: '/spit/out?rand='+Math.floor(Date.now() / 1000),
-      data: {token: hash},
+      data: {token: hash, lang: lang},
     }).then(res => {
       if(
         res.statusText === "OK" &&
@@ -65,7 +70,7 @@ class App extends React.Component {
           jsonData: res.data.data, 
           token: hash
         });
-        browserHistory.push('/login-page');
+        browserHistory.push('/login-page?hash='+hash+'&lang='+lang);
       } 
     }).catch(function(error) {
       console.log(error);
