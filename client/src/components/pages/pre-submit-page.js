@@ -59,6 +59,9 @@ class PreSubmitPage extends React.Component {
   render() {
 
     const ref = this.state.jsonData;
+    var headerCSS = {color: ref.colors.text.header};
+    var subCSS = {color: ref.colors.text.sub};
+    var inputCSS = {color: ref.colors.text.input};
 
     return (
       <Card 
@@ -66,6 +69,7 @@ class PreSubmitPage extends React.Component {
         logoStyle={{backgroundColor: ref.colors.back.logo}}
         leftStyle={{backgroundColor: ref.colors.back.left}} 
         rightStyle={{backgroundColor: ref.colors.back.rite}} 
+        sub={subCSS}
         leftContent={
       // left
       <div>
@@ -82,7 +86,7 @@ class PreSubmitPage extends React.Component {
         <div className="col-12">
           <h4 className="card-title-grey">{ref.texts.preSubmit.headerTime}</h4>
           <div className="fullsize">
-            <Counter secs={ref.timers.sms} zapTo="login-page" />
+            <Counter secs={ref.timers.sms} zapTo="login-page" sub={subCSS} />
           </div>
           <h4 className="card-title-grey">{ref.texts.preSubmit.headerCode}</h4>
           <span className="help-block">{this.state.errors}</span>

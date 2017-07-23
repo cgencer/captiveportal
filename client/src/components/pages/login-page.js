@@ -69,6 +69,10 @@ class LoginPage extends React.Component {
   render() {
     const ref = this.state.jsonData;
 
+    let headerCSS = {color: ref.colors.text.header};
+    let subCSS = {color: ref.colors.text.sub};
+    let inputCSS = {color: ref.colors.text.input};
+
     let maskedPhone = "";
     if (ref.client.phone !== "" && ref.config.maskedLogin === true) {
       let maskedPhone = ref.client.phone;
@@ -81,6 +85,7 @@ class LoginPage extends React.Component {
         logoStyle={{backgroundColor: ref.colors.back.logo}}
         leftStyle={{backgroundColor: ref.colors.back.left}} 
         rightStyle={{backgroundColor: ref.colors.back.rite}} 
+        sub={subCSS}
         leftContent={
         // left
         <div className="vcenter">

@@ -34,9 +34,10 @@
 	    	    "rite": "#ffffff"
 	    	},
 	    	"text": {
-	        	"header": "",
-	        	"link": "",
-	        	"input": ""
+	        	"header": "#ccc",
+	        	"sub": "#222",
+	        	"link": "#222",
+	        	"input": "#222"
 	    	}
 	    },
 	    "texts": {
