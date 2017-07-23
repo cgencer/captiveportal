@@ -83,11 +83,9 @@ class LoginPage extends React.Component {
     let subCSS = {color: ref.colors.text.sub};
     let inputCSS = {color: ref.colors.text.input};
 
-    let maskedPhone = "";
-    if (ref.client.phone !== "" && ref.config.maskedLogin === true) {
-      let maskedPhone = ref.client.phone;
-      maskedPhone = maskedPhone.substr(0, maskedPhone.length-2);
-    }
+    let maskedPhone = (ref.client.phone !== '' && ref.config.maskedLogin === true) ?
+      maskedPhone = ref.client.phone.substr(0, ref.client.phone.length-2) : '';
+    let maskedCSS = (maskedPhone !== '') ? {width: '20%', backgroundColor: '#ccc'} : {width: '100%'}; 
 
     return (
       <Card 
@@ -132,7 +130,7 @@ class LoginPage extends React.Component {
                     </div>
                   </div>
                     <div className="col-3"><input type="text" ref="prefix" id="prefix" name="prefix" value={ref.client.prefix} disabled="disabled" /></div>
-                    <div className="col-8">{maskedPhone}<input type="text" ref="number" id="number" name="number" /></div>
+                    <div className="col-8">{maskedPhone}<input type="text" ref="number" id="number" name="number" style={maskedCSS} /></div>
                   </div>
                 </div>
               </div>
