@@ -28,6 +28,7 @@ class PostSubmitPage extends React.Component {
         leftContent={
       // left
       <div className="vcenter">
+        <h4>{ref.client.prefix} {ref.client.phone}</h4>
         <h5>{ref.texts.left.header}</h5>
         <p className="card-text">{ref.texts.left.content}</p>
       </div>
