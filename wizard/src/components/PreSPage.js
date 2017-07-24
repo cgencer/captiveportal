@@ -11,12 +11,12 @@ class PreSPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      texts: {
-        footer: 'Powered by Turkcell',
-        buttons: {
-          submit: 'Gönder'
-        }
-      }
+      jsonData: {},
+      simulateXHR: false,
+      XHRDelay: 450,
+      highlight: false,
+      showSource: false,
+      isDisabled: false
     }
   };
 
@@ -38,10 +38,35 @@ class PreSPage extends React.Component {
     return (
       <Card leftContent={
         // left
-        <div className="vcenter">
-          <h5>WiFi Erişimi</h5>
-          <p className="card-text">Günlük toplam 360 dakika ücretsiz WiFi kullanabilmek için SMS aracılığıyla kaydolun.</p>
-        </div>
+      <div className="vcenter">
+        <h5 className="editables">
+          { this.state.isLoaded
+                ? <RIEInput
+            value={this.state.jsonData.texts.left.header}
+            change={this.virtualServerCallback}
+            propName="text"
+            className={this.state.highlight ? "editable" : ""}
+            classLoading="loading"
+            classInvalid="invalid"
+            isDisabled={this.state.isDisabled} />
+                : ''
+          }
+        </h5>
+        <p className="card-text editables">
+          { this.state.isLoaded
+                ? <RIETextArea
+            value={this.state.jsonData.texts.left.content}
+            change={this.virtualServerCallback}
+            propName="textarea"
+            className={this.state.highlight ? "editable editarea" : ""}
+            validate={this.isStringAcceptable}
+            classLoading="loading"
+            classInvalid="invalid"
+            isDisabled={this.state.isDisabled} />
+                : ''
+          }
+          </p>
+      </div>
       } riteContent={
         // right
         <div>
@@ -69,8 +94,9 @@ class PreSPage extends React.Component {
                 <button href="#" className="btn btn-danger btn-ghosted centering">Numarayı değiştir</button>  
               </div>
         </div>      
-    } footerContent={
-                  <RIEInput
+    } footerContent=
+              { this.state.isLoaded
+                ? <RIEInput
                     value={this.state.texts.footer}
                     change={this.virtualServerCallback}
                     propName="text"
@@ -78,7 +104,9 @@ class PreSPage extends React.Component {
                     classLoading="loading"
                     classInvalid="invalid"
                     isDisabled={this.state.isDisabled} />
-    } />);
+                : ''
+          }
+    />);
   };
 }
 

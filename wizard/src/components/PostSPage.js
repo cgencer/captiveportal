@@ -11,12 +11,12 @@ class PostSPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      texts: {
-        footer: 'Powered by Turkcell',
-        buttons: {
-          submit: 'Gönder'
-        }
-      }
+      jsonData: {},
+      simulateXHR: false,
+      XHRDelay: 450,
+      highlight: false,
+      showSource: false,
+      isDisabled: false
     }
   };
 
@@ -38,10 +38,35 @@ class PostSPage extends React.Component {
     return (
       <Card leftContent={
         // left
-        <div className="vcenter">
-          <h5>WiFi Erişimi</h5>
-          <p className="card-text">Günlük toplam 360 dakika ücretsiz WiFi kullanabilmek için SMS aracılığıyla kaydolun.</p>
-        </div>
+      <div className="vcenter">
+        <h5 className="editables">
+          { this.state.isLoaded
+                ? <RIEInput
+            value={this.state.texts.header}
+            change={this.virtualServerCallback}
+            propName="text"
+            className={this.state.highlight ? "editable" : ""}
+            classLoading="loading"
+            classInvalid="invalid"
+            isDisabled={this.state.isDisabled} />
+                : ''
+          }
+        </h5>
+        <p className="card-text editables">
+          { this.state.isLoaded
+                ? <RIETextArea
+            value={this.state.texts.intro}
+            change={this.virtualServerCallback}
+            propName="textarea"
+            className={this.state.highlight ? "editable editarea" : ""}
+            validate={this.isStringAcceptable}
+            classLoading="loading"
+            classInvalid="invalid"
+            isDisabled={this.state.isDisabled} />
+                : ''
+          }
+          </p>
+      </div>
       } riteContent={
         // right
         <div>
@@ -57,7 +82,7 @@ class PostSPage extends React.Component {
               <div className="col-12">
                 <h4 className="card-title-grey">Kalan Süreniz</h4>
                 <div className="fullsize hr-mins">
-                  <h3>04:23</h3>
+                  <h3>99:99</h3>
                   <h5 className="card-title-grey hrs">saat</h5>
                   <h5 className="card-title-grey mins">dakika</h5>
                 </div>
@@ -71,8 +96,9 @@ class PostSPage extends React.Component {
             </div>
 
         </div>      
-    } footerContent={
-                  <RIEInput
+    } footerContent=
+              { this.state.isLoaded
+                ? <RIEInput
                     value={this.state.texts.footer}
                     change={this.virtualServerCallback}
                     propName="text"
@@ -80,7 +106,9 @@ class PostSPage extends React.Component {
                     classLoading="loading"
                     classInvalid="invalid"
                     isDisabled={this.state.isDisabled} />
-    } />);
+                : ''
+          }
+    />);
   };
 }
 
