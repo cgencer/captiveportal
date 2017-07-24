@@ -37,6 +37,24 @@ class App extends React.Component {
         }
       };
   }
+
+  saveJSON(){
+    axios({
+      method: 'POST',
+      baseURL: 'http://localhost:3000/api/',
+      url: '/spit/in',
+      data: {data: this.state.jsonData},
+    }).then(res => {
+      if(
+        res.statusText === "OK"
+      ) {
+//        browserHistory.push('/login-page?hash='+hash+'&lang='+lang);
+      } 
+    }).catch(function(error) {
+      console.log(error);
+    });
+  }
+
   componentWillMount(){
 
     axios({
@@ -75,6 +93,8 @@ class App extends React.Component {
         <br/>
         <h1>Kron Captive Login Wizard</h1>
           {React.cloneElement(this.props.children, this.state)}
+          <br /><br /><br />
+          <button className="btn btn-success" onClick={this.saveJSON()}>Değişiklikleri Kaydet</button><br />
       </div>
     );
   }

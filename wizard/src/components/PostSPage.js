@@ -40,21 +40,17 @@ class PostSPage extends React.Component {
         // left
       <div className="vcenter">
         <h5 className="editables">
-          { this.state.isLoaded
-                ? <RIEInput
+          { this.state.isLoaded ? <RIEInput
             value={this.state.texts.header}
             change={this.virtualServerCallback}
             propName="text"
             className={this.state.highlight ? "editable" : ""}
             classLoading="loading"
             classInvalid="invalid"
-            isDisabled={this.state.isDisabled} />
-                : ''
-          }
+            isDisabled={this.state.isDisabled} /> : ''}
         </h5>
         <p className="card-text editables">
-          { this.state.isLoaded
-                ? <RIETextArea
+          { this.state.isLoaded ? <RIETextArea
             value={this.state.texts.intro}
             change={this.virtualServerCallback}
             propName="textarea"
@@ -62,9 +58,7 @@ class PostSPage extends React.Component {
             validate={this.isStringAcceptable}
             classLoading="loading"
             classInvalid="invalid"
-            isDisabled={this.state.isDisabled} />
-                : ''
-          }
+            isDisabled={this.state.isDisabled} /> : '' }
           </p>
       </div>
       } riteContent={
@@ -97,17 +91,14 @@ class PostSPage extends React.Component {
 
         </div>      
     } footerContent=
-              { this.state.isLoaded
-                ? <RIEInput
+      { this.state.isLoaded ? <RIEInput
                     value={this.state.texts.footer}
                     change={this.virtualServerCallback}
                     propName="text"
                     className={this.state.highlight ? "editable" : ""}
                     classLoading="loading"
                     classInvalid="invalid"
-                    isDisabled={this.state.isDisabled} />
-                : ''
-          }
+                    isDisabled={this.state.isDisabled} /> : ''}
     />);
   };
 }
