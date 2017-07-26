@@ -31,7 +31,6 @@ class LoginPage extends React.Component {
         this.refs.agree.value === 'on'
       ) {
       let onlyPhone = this.refs.masked.value + this.refs.number.value;
-    console.log('PHONE: '+onlyPhone +' ::: '+this.state.jsonData.client.phone);
       let dataset = {
         token: this.state.token,
         phone: this.refs.prefix.value + onlyPhone,
@@ -59,6 +58,9 @@ class LoginPage extends React.Component {
         }).catch(function(error) {
           console.log(error);
         });
+      }else{
+          this.refs.number.value = '';
+//        browserHistory.push('/login-page?hash='+diz.state.hash+'&lang='+diz.state.lang);        
       }
     }
   }
@@ -107,7 +109,14 @@ class LoginPage extends React.Component {
 
     let maskedPhone = (ref.client.phone !== '' && ref.config.maskedLogin === true) ?
       ref.client.phone.substr(0, ref.client.phone.length-2) : '';
-    let maskedCSS = (maskedPhone !== '') ? {width: '20%', backgroundColor: '#ccc'} : {width: '100%'}; 
+    let maskedCSS = (maskedPhone !== '') ? {
+        width: '35%', 
+        backgroundColor: '#ccc',
+        paddingLeft: '4px',
+        paddingRight: '4px',
+      } : {
+        width: '100%'
+      }; 
 
     return (
       <Card 
@@ -119,7 +128,7 @@ class LoginPage extends React.Component {
         leftContent={
         // left
         <div className="vcenter">
-          <h5>{ref.texts.left.header}:::</h5>
+          <h5>{ref.texts.left.header}</h5>
           <p className="card-text">{ref.texts.left.content}</p>
         </div>
       } riteContent={
@@ -132,13 +141,13 @@ class LoginPage extends React.Component {
             {this.conditional(maskedPhone, ref)}
 
             <div className="col-12 row">&nbsp;</div>
-            <div className="col-9 offset-2">
+            <div className="col-11 offset-1">
 
               <div className="container-fluid row">
 
                 <div className="col-12 colPhone">
                   <h4 className="card-title-grey">{ref.texts.login.headerPhone}</h4>
-                  <div className="row">
+                  <div className="col-12 row">
                   <div className="btn-group">
                     <button type="button" className="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <span className="sr-only">country</span> 

@@ -49,7 +49,7 @@
 	        "footer": "Powered by Turkcell",
 	        "login": {
 	            "headerName": "Adınız",
-	            "headerPhone": "Tel no",
+	            "headerPhone": "Telefon Numarası",
 	            "headerCountry": "Ülke",
 	            "greet": "Merhaba",
 	            "agree": "Kullanıcı sözleşmesini okudum ve kabul ediyorum.",
