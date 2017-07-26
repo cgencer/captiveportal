@@ -437,7 +437,7 @@ input[disabled] {
 .dropdown-menu {
 	border: 1px solid #cccccc;
 }
-.colCountry .dropdown-item, .colCountry .dropdown-item a {
+.dropdown-item, .dropdown-item a {
 	padding:0;
 }
 .post-submit {
@@ -447,7 +447,9 @@ input[disabled] {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-
+.dropdown-menu {
+	padding-left: 20px;
+}
 ul.footer-nav {
   padding:0;
   margin: 0;

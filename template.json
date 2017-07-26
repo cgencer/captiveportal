@@ -2,17 +2,18 @@
 	"data": {
 		"config": {
 			"hashCheck": "OK",
-		    "maskedLogin": false,
+		    "maskedLogin": true,
 		    "template": "templateCodeComesHere-ifEmptyLoginPageWontLoadEver!"
 		},
 	    "client": {
 		    "language": "tr",
 		    "prefix": "+90",
-		    "phone": "554 7666512"
+		    "name": "Jack Wolfskin",
+		    "phone": "123123"
 	    },
 	    "testValues": {
 	    	"sms": "mc68k",
-			"hash": "123qwe"
+			"hash": "test"
 	    },
 	    "timers": {
 		    "sms": 30,
@@ -50,6 +51,7 @@
 	            "headerName": "Adınız",
 	            "headerPhone": "Tel no",
 	            "headerCountry": "Ülke",
+	            "greet": "Merhaba",
 	            "agree": "Kullanıcı sözleşmesini okudum ve kabul ediyorum.",
 	            "button1": "Gönder"
 	        },

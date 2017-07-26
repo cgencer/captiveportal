@@ -30,38 +30,41 @@ class LoginPage extends React.Component {
     if( this.refs.token.value === this.state.token &&
         this.refs.agree.value === 'on'
       ) {
+      let onlyPhone = this.refs.masked.value + this.refs.number.value;
+    console.log('PHONE: '+onlyPhone +' ::: '+this.state.jsonData.client.phone);
       let dataset = {
         token: this.state.token,
-        phone: this.refs.prefix.value + this.refs.number.value,
+        phone: this.refs.prefix.value + onlyPhone,
         name: this.refs.name.value
       }
       this.setState({ data: dataset });
 
-      axios({
-        method: 'POST',
-        baseURL: 'http://localhost:3000/api/',
-        url: '/prelogin',
-        data: dataset
-      }).then(function (response) {
-        if(response.data.result === "OK") {
-          browserHistory.push('/pre-submit-page');
-        } 
-      }).catch(function(error) {
-        console.log(error);
-      });
-
-    } else {
-      console.log(this.props.location.state);
+      var diz = this;
+      if(diz.state.jsonData.client.phone === onlyPhone) {
+        axios({
+          method: 'POST',
+          baseURL: 'http://localhost:3000/api/',
+          url: '/prelogin',
+          data: dataset
+        }).then(function (response) {
+          if(response.data.result === "OK") {
+            if(diz.state.jsonData.client.phone !== ''
+              && diz.state.jsonData.config.maskedLogin === true
+            ) {
+              browserHistory.push('/post-submit-page');
+            }else{
+              browserHistory.push('/pre-submit-page');
+            }
+          } 
+        }).catch(function(error) {
+          console.log(error);
+        });
+      }
     }
-  }
-
-  selectFlag() {
-    console.log('flag selected.');
   }
 
   allFlags(hash) {
     var diz = this;
-    console.log('........>'+hash);
     return (
       <div>
         <div className="row">      
@@ -76,6 +79,25 @@ class LoginPage extends React.Component {
     );
   }
 
+  conditional(maskedPhone, ref) {
+    return (maskedPhone=='') ? (
+      <div className="col-11 offset-1 row name">
+        <h4 className="card-title-grey">{ref.texts.login.headerName}</h4>
+        <div className="col-12">
+          <input type="text" className="centering" ref="name" name="name" id="name" /> 
+        </div>
+      </div>
+    ) : (
+      <div className="col-11 offset-1 row name">
+        <h4 className="card-title-grey">{ref.texts.login.greet}</h4>
+        <div className="col-12">
+          <input type="hidden" className="centering" ref="name" name="name" id="name" value={ref.client.name} /> 
+          {ref.client.name}
+        </div>
+      </div>
+    );
+  };
+
   render() {
     const ref = this.state.jsonData;
 
@@ -84,7 +106,7 @@ class LoginPage extends React.Component {
     let inputCSS = {color: ref.colors.text.input};
 
     let maskedPhone = (ref.client.phone !== '' && ref.config.maskedLogin === true) ?
-      maskedPhone = ref.client.phone.substr(0, ref.client.phone.length-2) : '';
+      ref.client.phone.substr(0, ref.client.phone.length-2) : '';
     let maskedCSS = (maskedPhone !== '') ? {width: '20%', backgroundColor: '#ccc'} : {width: '100%'}; 
 
     return (
@@ -106,12 +128,8 @@ class LoginPage extends React.Component {
           <form ref="login_form" onSubmit={this.submitForm.bind(this)}>
             <input type="hidden" ref="token" id="token" name="token" value={this.state.token} />
             <div className="col-11 offset-1 row">&nbsp;</div>
-            <div className="col-11 offset-1 row name">
-              <h4 className="card-title-grey">{ref.texts.login.headerName}</h4>
-              <div className="col-12">
-                <input type="text" className="centering" ref="name" name="name" id="name" /> 
-              </div>      
-            </div>
+
+            {this.conditional(maskedPhone, ref)}
 
             <div className="col-12 row">&nbsp;</div>
             <div className="col-9 offset-2">
@@ -123,13 +141,14 @@ class LoginPage extends React.Component {
                   <div className="row">
                   <div className="btn-group">
                     <button type="button" className="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span className="sr-only">country</span>
+                      <span className="sr-only">country</span> 
                     </button>
                     <div className="dropdown-menu dropdown-menu-right">
                       {this.allFlags(this.state.hash)}
                     </div>
                   </div>
                     <div className="col-3"><input type="text" ref="prefix" id="prefix" name="prefix" value={ref.client.prefix} disabled="disabled" /></div>
+                    <input type="hidden" ref="masked" id="masked" name="masked" value={maskedPhone} />
                     <div className="col-8">{maskedPhone}<input type="text" ref="number" id="number" name="number" style={maskedCSS} /></div>
                   </div>
                 </div>

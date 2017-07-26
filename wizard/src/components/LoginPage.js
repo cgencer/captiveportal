@@ -10,12 +10,8 @@ class LoginPage extends React.Component {
 
   constructor(props){
     super(props);
+    this.cb = props.cb;
     this.state = {
-      simulateXHR: false,
-      XHRDelay: 450,
-      highlight: false,
-      showSource: false,
-      isDisabled: false,
       texts: {
         header: 'WiFi Erişimi',
         intro : 'Günlük toplam 360 dakika ücretsiz WiFi kullanabilmek için SMS aracılığıyla kaydolun.',
@@ -30,6 +26,7 @@ class LoginPage extends React.Component {
         }
       }
     };
+    this.state = props.state;
   };
 
   virtualServerCallback = (newState) => {
@@ -47,8 +44,9 @@ class LoginPage extends React.Component {
   };
 
   render = () => {
+    var diz = this;
     return(
-    <Card leftContent={
+    <Card saver={diz.saveJSON()} leftContent={
 
       // left
       <div className="vcenter">

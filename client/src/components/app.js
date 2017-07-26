@@ -53,7 +53,7 @@ class App extends React.Component {
 //    var hash = location.hash.substr(1, location.hash.length);
     var hash = this.state.props.location.query.hash;
     var lang = this.state.props.location.query.lang;
-    lang = (lang === "") ? 'tr' : lang;
+    lang = (lang !== 'undefined' || lang === "") ? 'tr' : lang;
 
     axios({
       method: 'POST',

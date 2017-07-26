@@ -10,14 +10,7 @@ class PreSPage extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {
-      jsonData: {},
-      simulateXHR: false,
-      XHRDelay: 450,
-      highlight: false,
-      showSource: false,
-      isDisabled: false
-    }
+    this.state = {}
   };
 
   virtualServerCallback = (newState) => {

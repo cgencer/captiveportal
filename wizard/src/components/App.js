@@ -12,6 +12,11 @@ class App extends React.Component {
     this.state = {
       isLoaded: false,
       data: {},
+      simulateXHR: false,
+      XHRDelay: 450,
+      highlight: false,
+      showSource: false,
+      isDisabled: false,
       jsonData: {
           loginShortcut: "",
           template: "",
@@ -36,6 +41,10 @@ class App extends React.Component {
           }
         }
       };
+  }
+
+  receiveData(data) {
+    this.setState({jsonData: data});
   }
 
   saveJSON(){
@@ -92,9 +101,10 @@ class App extends React.Component {
         <Link to="/postsubmit">Post-submit</Link>
         <br/>
         <h1>Kron Captive Login Wizard</h1>
-          {React.cloneElement(this.props.children, this.state)}
-          <br /><br /><br />
-          <button className="btn btn-success" onClick={this.saveJSON()}>Değişiklikleri Kaydet</button><br />
+          {React.cloneElement(this.props.children, {
+            state: this.state,
+            cb: diz.receiveData
+          })}
       </div>
     );
   }

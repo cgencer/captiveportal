@@ -8,7 +8,7 @@ import '../styles/wizard.css';
 // Since this component is simple and static, there's no parent container for it.
 const Card = (props) => {
   return (
-
+    <div>
     <div className="card mx-auto rounded loginCard">
       <div className="container-fluid row">
 
@@ -28,6 +28,11 @@ const Card = (props) => {
           </div>
         </div>
       </div>
+    </div>
+
+
+    <br /><br /><br />
+    <button className="btn btn-success" onClick={this.props.saver()}>Değişiklikleri Kaydet</button><br />
     </div>
   );
 };

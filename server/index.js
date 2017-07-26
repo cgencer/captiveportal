@@ -9,7 +9,7 @@ const express = require('express'),
   config = require('./config/main');
 
 // Database Setup
-mongoose.connect(config.database);
+//mongoose.connect(config.database);
 
 // Start the server
 let server;
