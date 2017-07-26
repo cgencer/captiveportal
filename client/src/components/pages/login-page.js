@@ -110,6 +110,7 @@ class LoginPage extends React.Component {
 
     let maskedPhone = (ref.client.phone !== '' && ref.config.maskedLogin === true) ?
       ref.client.phone.substr(0, ref.client.phone.length-2) : '';
+    let maxlen = (maskedPhone !== '') ? '2' : '10';
     let maskedCSS = (maskedPhone !== '') ? {
         width: '35%', 
         backgroundColor: '#ccc',
@@ -159,7 +160,7 @@ class LoginPage extends React.Component {
                   </div>
                     <div className="col-3"><input type="text" ref="prefix" id="prefix" name="prefix" value={ref.client.prefix} disabled="disabled" /></div>
                     <input type="hidden" ref="masked" id="masked" name="masked" value={maskedPhone} />
-                    <div className="col-8">{maskedPhone}<input type="text" ref="number" id="number" name="number" style={maskedCSS} /></div>
+                    <div className="col-8">{maskedPhone}<input type="text" ref="number" id="number" maxLength={maxlen} name="number" style={maskedCSS} /></div>
                   </div>
                 </div>
               </div>
