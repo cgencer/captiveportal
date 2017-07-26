@@ -95,6 +95,7 @@ class LoginPage extends React.Component {
         <div className="col-12">
           <input type="hidden" className="centering" ref="name" name="name" id="name" value={ref.client.name} /> 
           {ref.client.name}
+          <p><small>{ref.texts.login.input}</small></p>
         </div>
       </div>
     );

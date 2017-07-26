@@ -52,6 +52,7 @@
 	            "headerPhone": "Telefon Numarası",
 	            "headerCountry": "Ülke",
 	            "greet": "Merhaba",
+	            "input": "Lütfen telefon numaranızın son 2 hanesini ilgili alana giriniz.",	            
 	            "agree": "Kullanıcı sözleşmesini okudum ve kabul ediyorum.",
 	            "button1": "Gönder"
 	        },
