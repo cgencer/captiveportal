@@ -47,12 +47,14 @@ class LoginPage extends React.Component {
           data: dataset
         }).then(function (response) {
           if(response.data.result === "OK") {
-            if(diz.state.jsonData.client.phone !== ''
-              && diz.state.jsonData.config.maskedLogin === true
-            ) {
-              browserHistory.push('/post-submit-page');
-            }else{
+            if(diz.state.jsonData.config.maskedLogin === false) {
               browserHistory.push('/pre-submit-page');
+            }else{
+              if(diz.state.jsonData.client.phone !== '') {
+                browserHistory.push('/post-submit-page');
+              }else{
+                browserHistory.push('/pre-submit-page');
+              }
             }
           } 
         }).catch(function(error) {
